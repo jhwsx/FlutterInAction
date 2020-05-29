@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart'; // 导入包：导入了 Material UI 组件库
+import 'package:english_words/english_words.dart';
 
 void main() {
   // 应用入口
@@ -70,6 +71,7 @@ class MyApp2 extends StatelessWidget {
     );
   }
 }
+
 // 演示 MaterialApp 的 onGenerateRoute 属性
 class MyApp3 extends StatelessWidget {
   @override
@@ -90,9 +92,12 @@ class MyApp3 extends StatelessWidget {
         print('===>onGenerateRoute');
         switch (settings.name) {
           case '/':
-            return MaterialPageRoute(builder: (context) => MyHomePage(title: 'Flutter Demo Home Page'));
+            return MaterialPageRoute(
+                builder: (context) =>
+                    MyHomePage(title: 'Flutter Demo Home Page'));
           case 'tip':
-            return MaterialPageRoute(builder: (context) => TipRoute(text: settings.arguments));
+            return MaterialPageRoute(
+                builder: (context) => TipRoute(text: settings.arguments));
           default:
             throw Exception('unknown name');
         }
@@ -100,7 +105,6 @@ class MyApp3 extends StatelessWidget {
     );
   }
 }
-
 
 // 首页 widget，继承自 StatefulWidget， 表示这是一个有状态的组件。
 class MyHomePage extends StatefulWidget {
@@ -256,6 +260,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text('演示通过路由名打开新路由并传值以及从新路由获取返回数据'),
             ),
+            RandomWordsWidget(),
           ],
         ),
       ),
@@ -318,6 +323,17 @@ class TipRoute extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class RandomWordsWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Text(wordPair.toString()),
     );
   }
 }

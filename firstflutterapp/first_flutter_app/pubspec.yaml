@@ -1,5 +1,5 @@
-name: firstflutterapp
-description: A new Flutter application.
+name: firstflutterapp # name 是应用或包名称
+description: A new Flutter application. # description 是应用或包的描述，简介。
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -15,21 +15,21 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.0+1 # version 应用或包的版本信息。
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
-dependencies:
-  flutter:
+dependencies: # 应用或包依赖的其他包或插件, 作为APP的源码的一部分参与编译，生成最终的安装包
+  flutter: # flutter 相关的配置
     sdk: flutter
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
-
-dev_dependencies:
+  english_words: ^3.1.5
+dev_dependencies: # 开发依赖包，只是作为开发阶段的一些工具包，主要是用于帮助我们提高开发、测试效率，比如flutter的自动化测试包等。
   flutter_test:
     sdk: flutter
 
