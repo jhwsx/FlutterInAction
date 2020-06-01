@@ -261,6 +261,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('演示通过路由名打开新路由并传值以及从新路由获取返回数据'),
             ),
             RandomWordsWidget(),
+            RaisedButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return AssetWidget();
+              }));
+            },
+            child: Text('资源管理'))
           ],
         ),
       ),
@@ -338,6 +344,28 @@ class RandomWordsWidget extends StatelessWidget {
   }
 }
 
+class AssetWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context)  {
+    // TODO 怎么加载?
+//    var assetBundle = DefaultAssetBundle.of(context);
+//    var info = await  assetBundle.loadString('assets/info.json');
+
+    return Scaffold(
+      appBar: AppBar(title: Text('资源管理')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/dog.jpeg'),
+          ],
+        ),
+      ),
+    );
+  }
+  
+}
+
 // 流程：
 // 当右下角的floatingActionButton按钮被点击之后，会调用_incrementCounter方法。
 // 在_incrementCounter方法中，首先会自增_counter计数器（状态），然后setState会通知Flutter
@@ -356,3 +384,4 @@ Map<String, WidgetBuilder> routes;
 它是一个Map，key为路由的名字，是个字符串；value是个builder回调函数，用于生成相应的路由widget。我们在通过路由名字打开新路由时，
 应用会根据路由名字在路由表中查找到对应的WidgetBuilder回调函数，然后调用该回调函数生成路由widget并返回。
  */
+// TODO 获取 AssetBundle 的两种方式
