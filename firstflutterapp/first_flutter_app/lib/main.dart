@@ -7,6 +7,10 @@ void main() {
   // 方法解释：填充给定的控件并把它附加到屏幕上。
   // Widget 参数是 MyApp() 对象，MyApp() 是 Flutter 应用的根组件。
   runApp(MyApp3());
+  // TODO 这里为什么不能打印?
+  FlutterError.onError = (FlutterErrorDetails details) {
+    print('自己上报异常: ${details.toString()}');
+  };
 }
 
 class MyApp extends StatelessWidget {
@@ -266,7 +270,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 return AssetWidget();
               }));
             },
-            child: Text('资源管理'))
+            child: Text('资源管理')),
+            RaisedButton(onPressed: () {
+//              throw HttpException('http exception');
+              throw Error();
+            },
+            child: Text('抛出一个异常'),),
           ],
         ),
       ),
@@ -385,3 +394,4 @@ Map<String, WidgetBuilder> routes;
 应用会根据路由名字在路由表中查找到对应的WidgetBuilder回调函数，然后调用该回调函数生成路由widget并返回。
  */
 // TODO 获取 AssetBundle 的两种方式
+// TODO Dart单线程模型
