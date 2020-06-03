@@ -110,6 +110,25 @@ class MyApp3 extends StatelessWidget {
   }
 }
 
+class ContextRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Context测试'),
+      ),
+      body: Container(
+        child: Builder(builder: (context) {
+          // 在 Widget 树中向上查找最近的父级 Scaffold widget
+          Scaffold scaffold = context.findAncestorWidgetOfExactType<Scaffold>();
+          // 这里返回的是 appBar 的 title,
+          return (scaffold.appBar as AppBar).title;
+        }),
+      ),
+    );
+  }
+}
+
 // 首页 widget，继承自 StatefulWidget， 表示这是一个有状态的组件。
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -168,7 +187,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        // TODO 这里的 widget 什么时候赋值的？
+
+        // widget 的初始化: This property is initialized by the framework before calling [initState].
         title: Text(widget.title),
       ),
       // Center 是一个组件，Center 可以将其子组件树对齐到屏幕中心。
@@ -265,17 +285,28 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('演示通过路由名打开新路由并传值以及从新路由获取返回数据'),
             ),
             RandomWordsWidget(),
-            RaisedButton(onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return AssetWidget();
-              }));
-            },
-            child: Text('资源管理')),
-            RaisedButton(onPressed: () {
+            RaisedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return AssetWidget();
+                  }));
+                },
+                child: Text('资源管理')),
+            RaisedButton(
+              onPressed: () {
 //              throw HttpException('http exception');
-              throw Error();
-            },
-            child: Text('抛出一个异常'),),
+                throw Error();
+              },
+              child: Text('抛出一个异常'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return ContextRoute();
+                }));
+              },
+              child: Text('Context 测试'),
+            ),
           ],
         ),
       ),
@@ -355,7 +386,7 @@ class RandomWordsWidget extends StatelessWidget {
 
 class AssetWidget extends StatelessWidget {
   @override
-  Widget build(BuildContext context)  {
+  Widget build(BuildContext context) {
     // TODO 怎么加载?
 //    var assetBundle = DefaultAssetBundle.of(context);
 //    var info = await  assetBundle.loadString('assets/info.json');
@@ -372,7 +403,6 @@ class AssetWidget extends StatelessWidget {
       ),
     );
   }
-  
 }
 
 // 流程：
