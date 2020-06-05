@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'button.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -109,6 +111,16 @@ class _CountWidgetState extends State<CountWidget> {
                 }));
               },
               child: Text('文本字体样式'),
+              textColor: Colors.blue,
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return ButtonRoute();
+                }));
+              },
+              child: Text('按钮'),
               textColor: Colors.blue,
             ),
           ],
