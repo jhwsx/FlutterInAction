@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:statefulwidgetdemo/_3_5_imge_and_icon.dart';
 
 import 'button.dart';
 
@@ -121,6 +122,16 @@ class _CountWidgetState extends State<CountWidget> {
                 }));
               },
               child: Text('按钮'),
+              textColor: Colors.blue,
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return ImageIconRoute();
+                }));
+              },
+              child: Text('图片及Icon'),
               textColor: Colors.blue,
             ),
           ],
