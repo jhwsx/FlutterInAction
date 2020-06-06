@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:statefulwidgetdemo/_3_5_imge_and_icon.dart';
+import 'package:statefulwidgetdemo/_3_6_switch_and_checkbox.dart';
 
 import 'button.dart';
 
@@ -132,6 +133,16 @@ class _CountWidgetState extends State<CountWidget> {
                 }));
               },
               child: Text('图片及Icon'),
+              textColor: Colors.blue,
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return SwitchAndCheckBoxRoute();
+                }));
+              },
+              child: Text('3.6 单选开关和复选框'),
               textColor: Colors.blue,
             ),
           ],
