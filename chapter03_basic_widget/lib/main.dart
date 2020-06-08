@@ -9,6 +9,7 @@ import '_3_4_button.dart';
 import '_3_5_image_and_icon.dart';
 import '_3_6_switch_and_checkbox.dart';
 import '_3_7_textfield_and_form.dart';
+import '_3_8_progress_indicator.dart';
 
 void main() {
   runApp(MyApp());
@@ -128,6 +129,16 @@ class MyHomePage extends StatelessWidget {
                 }));
               },
               child: Text('3.7 输入框和表单'),
+              textColor: Colors.blue,
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return ProgressIndicatorRoute();
+                }));
+              },
+              child: Text('3.8 进度指示器'),
               textColor: Colors.blue,
             ),
           ],
