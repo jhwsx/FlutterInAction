@@ -7,7 +7,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="statefulwidgetdemo"
+        android:label="chapter03_basic_widget"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

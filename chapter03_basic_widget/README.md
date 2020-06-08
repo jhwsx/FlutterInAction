@@ -1,4 +1,4 @@
-# statefulwidgetdemo
+# chapter03_basic_widget
 
 A new Flutter application.
 

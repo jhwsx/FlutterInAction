@@ -18,7 +18,6 @@ class ImageIconRoute extends StatelessWidget {
             Image(
               // 不指定宽高,图片会根据当前父容器的限制,尽量显示原始图片大小.
               image: AssetImage('assets/images/avatar.png'),
-              width: 200,
             ),
             Image(
               // 指定了宽度,另一个属性默认是按比例缩放

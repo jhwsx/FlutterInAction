@@ -1,6 +1,6 @@
 {
-    "name": "statefulwidgetdemo",
-    "short_name": "statefulwidgetdemo",
+    "name": "chapter03_basic_widget",
+    "short_name": "chapter03_basic_widget",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
