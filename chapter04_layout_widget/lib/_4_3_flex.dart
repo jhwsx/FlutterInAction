@@ -45,6 +45,7 @@ class FlexRoute extends StatelessWidget {
           SizedBox(
             // TODO 为什么这里加上了 SizedBox，就会让子组件占据屏幕的宽度呢？
             height: 300,
+            width: null,
             child: Flex(
               direction: Axis.vertical,
               children: <Widget>[

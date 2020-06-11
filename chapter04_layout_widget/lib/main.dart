@@ -1,3 +1,4 @@
+import 'package:chapter04layoutwidget/_4_4_wrap_and_flow.dart';
 import 'package:flutter/material.dart';
 import '_4_2_linear_layout_row_and_column.dart';
 import '_4_3_flex.dart';
@@ -43,6 +44,14 @@ class MyHomePage extends StatelessWidget {
               }));
             },
             child: Text('4.3 弹性布局（Flex）'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return WrapAndFlowRoute();
+              }));
+            },
+            child: Text('4.4 流式布局'),
           ),
         ],
       ),
