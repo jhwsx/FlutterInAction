@@ -1,5 +1,6 @@
 import 'package:chapter04layoutwidget/_4_4_wrap_and_flow.dart';
 import 'package:chapter04layoutwidget/_4_5_stack_and_positioned.dart';
+import 'package:chapter04layoutwidget/_4_6_align.dart';
 import 'package:flutter/material.dart';
 import '_4_2_linear_layout_row_and_column.dart';
 import '_4_3_flex.dart';
@@ -61,6 +62,14 @@ class MyHomePage extends StatelessWidget {
               }));
             },
             child: Text('4.5 层叠布局 Stack、Positioned'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return AlignRoute();
+              }));
+            },
+            child: Text('4.6 对齐与相对定位（Align）'),
           ),
         ],
       ),
