@@ -129,8 +129,10 @@ class RowRoute extends StatelessWidget {
             ],
           ),
           Row(
-            // 在相交轴上靠哪边对齐
+            // 在相交轴上靠哪边对齐, 默认是 center
             crossAxisAlignment: CrossAxisAlignment.start,
+            // verticalDirection: 相交轴上的对齐方式，默认是从上到下。不可以为 null
+            // 这个值的设置会影响 crossAxisAlignment 的对齐效果。
             verticalDirection: VerticalDirection.up,
             children: [
               Text(
@@ -157,7 +159,7 @@ class ColumnRoute extends StatelessWidget {
         // Column 的高度是占据了屏幕的高度的空间
         // crossAxisAlignment: CrossAxisAlignment.center 指定了在相交轴上如何定位 children
         // 设置为 center，表示在相交轴上居中定位 children。
-        // 相交轴的宽度是由最宽的 child 决定的，这里是由 world 这个文本决定的。
+        // 相交轴上的宽度是由最宽的 child 决定的，这里是由 world 这个文本决定的。
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text('hi'),
@@ -177,8 +179,10 @@ class ColumnCenterRoute1 extends StatelessWidget {
         title: Text('Column 居中1'),
       ),
       body: ConstrainedBox(
-        // 约束条件
-        constraints: BoxConstraints(minWidth: double.infinity),
+        // ConstrainedBox 可以给它的 child 组件强加额外的约束。
+        // BoxConstraints constraints 约束条件：这是一个必选的参数，封装了约束信息。
+        // 这里的作用就是把 Column 的宽度改为了屏幕的宽度。
+        constraints: BoxConstraints(minWidth: double.infinity), // 使得宽度占据尽可能多的空间
         child: Column(
           // Column 的高度是占据了屏幕的高度的空间
           // crossAxisAlignment: CrossAxisAlignment.center 指定了在相交轴上如何定位 children
@@ -206,6 +210,9 @@ class ColumnCenterRoute2 extends StatelessWidget {
       ),
       body: Row(
         children: [
+          // Expanded 是 Flexible 的子类，
+          // Expanded 组件的作用是包裹一个组件并强制该组件填满多余的空间
+          // 这里的作用就是让 Column 填满所在的 Row 的多余空间。
           Expanded(
             child: Column(
               // Column 的高度是占据了屏幕的高度的空间
@@ -235,6 +242,8 @@ class ColumnCenterRoute3 extends StatelessWidget {
         title: Text('Column 居中3'),
       ),
       body: Center(
+        // Center 会尽可能地大，因为它没有指定 dimensions 和 widthFactor，heightFactor。
+        // Center 是 Align 的子类, 表示在它的内部居中定位子组件。
         child: Column(
           // Column 的高度是占据了屏幕的高度的空间
           // crossAxisAlignment: CrossAxisAlignment.center 指定了在相交轴上如何定位 children
@@ -261,10 +270,12 @@ class SpecialCaseRoute extends StatelessWidget {
         color: Colors.green,
         child: Padding(
           padding: EdgeInsets.all(8),
+          // 只有最外面的 Column 会占据尽可能大的高度
           child: Column(
             children: [
               Container(
                 color: Colors.red,
+                // 里面的 Column 的高度是实际的大小。
                 child: Column(
                   children: [
                     Text('hello world!'),
