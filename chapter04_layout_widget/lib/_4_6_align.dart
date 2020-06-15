@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 // 学习 Align 组件
 // 1, 作用：可以在 Align 组件的内部对齐它的子组件，并且可以基于子组件的大小来调整 Align 组件的大小
-// 2, 坐标转换公式
+// 2, Align 的坐标转换公式
 // (Alignment.x*childWidth/2+childWidth/2, Alignment.y*childHeight/2+childHeight/2)
 // x 的取值范围是 [-1, 1], y 的取值范围是 [-1,1].
 // 3, final double widthFactor 如果不是 null，用于确定 Align 的宽度： 子组件的宽度乘以该因子。
 // 可以比 1.0 大也可以比 1.0 小，但必须是正值。
-// 和 final double heightFactor 如果不是 null，用于确定 Align 的高度： 子组件的宽度乘以该因子。
+// final double heightFactor 如果不是 null，用于确定 Align 的高度： 子组件的宽度乘以该因子。
 //// 可以比 1.0 大也可以比 1.0 小，但必须是正值。
 // 4, FractionalOffset 继承自 Alignment， 和 Alignment 的唯一区别是坐标原点不同，
 // FractionalOffset 的坐标原点为矩形的左侧顶点，这和布局系统的一致。 而 Alignment Widget 会以矩形的中心点作为坐标原点

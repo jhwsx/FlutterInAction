@@ -118,6 +118,13 @@ class WrapDemoRoute extends StatelessWidget {
               child: Text('K'),
             ),
           ),
+          Chip(
+            label: Text('Dart'),
+            avatar: CircleAvatar(
+              backgroundColor: Colors.blue,
+              child: Text('D'),
+            ),
+          ),
         ],
       ),
     );

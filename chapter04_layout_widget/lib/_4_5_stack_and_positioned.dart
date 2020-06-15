@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 // 学习 Stack
 // 1, Stack 的作用是让子组件层叠在一起，子组件越往后，层级越靠上。
@@ -119,7 +120,7 @@ class StackDemo2Route extends StatelessWidget {
       body: ConstrainedBox(
         // ConstrainedBox 可以给子组件添加额外的约束
         // 通过 ConstrainedBox 来确保 Stack 占满屏幕
-        constraints: BoxConstraints.expand(),
+        constraints: BoxConstraints.expand(), // 没有指定，就是占满
         child: Stack(
           // How to align the non-positioned and partially-positioned children in the stack.
           alignment: AlignmentDirectional.center,
@@ -131,6 +132,8 @@ class StackDemo2Route extends StatelessWidget {
               //  A convenience widget that combines common painting, positioning, and sizing widgets.
               child: Text('Hello world', style: TextStyle(color: Colors.white)),
               color: Colors.red,
+              // 把文本居中
+              alignment: Alignment.center,
               padding: EdgeInsets.all(8.0),
             ),
             Positioned(
@@ -208,6 +211,7 @@ class StackDemo4Route extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(5.0),
               // 为什么 Container 会占据 250, 250 的位置呢？
+              // 看 AlignmentGeometry alignment 的参数解释
               /// Align the [child] within the container.
               ///
               /// If non-null, the container will expand to fill its parent and position its
@@ -216,6 +220,7 @@ class StackDemo4Route extends StatelessWidget {
               // 如果不是 null，那么 container 会扩展到填充它的父组件并且把它的子组件根据 alignment 的值
               // 来定位。
               alignment: Alignment.bottomCenter,
+              // 加线性渐变色装饰
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
