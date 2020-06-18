@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // 1, 给子组件添加补白
 // 2, 属性就一个：final EdgeInsetsGeometry padding; EdgeInsetsGeometry 是一个抽象类，
 // 一般使用它的子类 EdgeInsets， EdgeInsets 定义了设置填充的便捷方法。
+// 3, 注意设置的 EdgeInsets 都有 const 这个关键字。
 class PaddingRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

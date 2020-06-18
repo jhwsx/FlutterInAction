@@ -1,4 +1,5 @@
 import 'package:chapter05containerwidget/_5_1_padding.dart';
+import 'package:chapter05containerwidget/_5_2_size_constrained_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -49,6 +50,14 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.blue,
             child: Text('5.1 填充（Padding）'),
           ),
+          RaisedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return SizeConstrainedContainerRoute();
+            }));
+          },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+          child: Text('5.2 尺寸限制类容器'),),
         ],
       ),
     );
