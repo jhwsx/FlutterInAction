@@ -1,5 +1,6 @@
 import 'package:chapter05containerwidget/_5_1_padding.dart';
 import 'package:chapter05containerwidget/_5_2_size_constrained_container.dart';
+import 'package:chapter05containerwidget/_5_3_decorated_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -58,6 +59,14 @@ class _MyHomePageState extends State<MyHomePage> {
             colorBrightness: Brightness.dark,
             color: Colors.blue,
           child: Text('5.2 尺寸限制类容器'),),
+          RaisedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return DecoratedBoxRoute();
+            }));
+          },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('5.3 装饰容器DecoratedBox'),),
         ],
       ),
     );
