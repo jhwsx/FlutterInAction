@@ -5,6 +5,8 @@ import 'package:chapter05containerwidget/_5_4_transform.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '_5_5_container.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -52,29 +54,46 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.blue,
             child: Text('5.1 填充（Padding）'),
           ),
-          RaisedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context){
-              return SizeConstrainedContainerRoute();
-            }));
-          },
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return SizeConstrainedContainerRoute();
+              }));
+            },
             colorBrightness: Brightness.dark,
             color: Colors.blue,
-          child: Text('5.2 尺寸限制类容器'),),
-          RaisedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context){
-              return DecoratedBoxRoute();
-            }));
-          },
+            child: Text('5.2 尺寸限制类容器'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DecoratedBoxRoute();
+              }));
+            },
             colorBrightness: Brightness.dark,
             color: Colors.blue,
-            child: Text('5.3 装饰容器DecoratedBox'),), RaisedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context){
-              return TransformRoute();
-            }));
-          },
+            child: Text('5.3 装饰容器DecoratedBox'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return TransformRoute();
+              }));
+            },
             colorBrightness: Brightness.dark,
             color: Colors.blue,
-            child: Text('5.4 变换（Transform）'),),
+            child: Text('5.4 变换（Transform）'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ContainerRoute();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('5.5 Container（容器）'),
+          ),
         ],
       ),
     );

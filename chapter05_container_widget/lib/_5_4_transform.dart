@@ -80,6 +80,7 @@ class Demo1 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Demo1')),
       body: Container(
+        margin: EdgeInsets.only(left: 100, top: 100),
         color: Colors.black,
         child: Transform(
           alignment: Alignment.topRight,
