@@ -6,7 +6,7 @@ void main() {
   // runApp(Widget app) 的功能是启动 Flutter 应用
   // 方法解释：填充给定的控件并把它附加到屏幕上。
   // Widget 参数是 MyApp() 对象，MyApp() 是 Flutter 应用的根组件。
-  runApp(MyApp3());
+  runApp(MyApp());
   // TODO 这里为什么不能打印?
   FlutterError.onError = (FlutterErrorDetails details) {
     print('自己上报异常: ${details.toString()}');
