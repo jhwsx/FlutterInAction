@@ -61,7 +61,8 @@ class TextFontRoute extends StatelessWidget {
           ),
           Text(
             "Hello world! I'm wangzhichao",
-            style: TextStyle(height: 2.0),
+            style: TextStyle(
+                height: 2.0), // height 是一个因子，具体的行高等于 fontSize * height。
           ),
           Text("Hello world! I'm wangzhichao",
               style: TextStyle(
@@ -86,6 +87,36 @@ class TextFontRoute extends StatelessWidget {
                   text: "I'm wangzhichao", style: TextStyle(color: Colors.blue))
             ],
           )),
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: "赤",
+                  style: TextStyle(color: Colors.red),
+                ),
+                TextSpan(
+                  text: "橙",
+                  style: TextStyle(color: Colors.orange),
+                ),
+                TextSpan(
+                  text: "绿",
+                  style: TextStyle(color: Colors.green),
+                ),
+                TextSpan(
+                  text: "蓝",
+                  style: TextStyle(color: Colors.blue),
+                ),
+                TextSpan(
+                  text: "靛",
+                  style: TextStyle(color: Colors.cyan),
+                ),
+                TextSpan(
+                  text: "紫",
+                  style: TextStyle(color: Colors.purple),
+                ),
+              ],
+            ),
+          ),
           DefaultTextStyle(
             // DefaultTextStyle 设置默认文本样式, 所有位于该节点的子(包括孙...)树中所有默认使用这个样式
             style: TextStyle(color: Colors.red, fontSize: 20.0),
@@ -102,15 +133,25 @@ class TextFontRoute extends StatelessWidget {
                   ),
                 ),
                 Column(
-                  children: [ // 孙节点
+                  children: [
+                    // 孙节点
                     Text('Hello, world!'),
                   ],
                 ),
               ],
             ),
           ),
-          Text('use font: I love China',
-              style: const TextStyle(fontFamily: 'ArchitectsDaughter')),
+          Text(
+            'use font: I love China',
+            style: const TextStyle(fontFamily: 'Goldman'),
+          ),
+          Text(
+            "I love you",
+            style: const TextStyle(
+              fontFamily: "StalinistOne",
+              package: "chapter03_basic_widget",
+            ),
+          ),
         ],
       ),
     );

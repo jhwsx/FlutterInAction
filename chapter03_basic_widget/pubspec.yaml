@@ -72,5 +72,12 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+    - family: Goldman
+      fonts:
+        - asset: fonts/Goldman-Bold.ttf
+        - asset: fonts/Goldman-Regular.ttf
+        - asset: packages/chapter03_basic_widget/fonts/Modak-Regular.ttf
+        - asset: packages/chapter03_basic_widget/fonts/StalinistOne-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
