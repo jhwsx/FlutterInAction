@@ -48,7 +48,8 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-
+  assets:
+    - images/avatar.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -73,6 +74,9 @@ flutter:
   #         weight: 700
   #
   fonts:
+    - family: myIconFamily
+      fonts:
+        - asset: fonts/iconfont.ttf
     - family: Goldman
       fonts:
         - asset: fonts/Goldman-Bold.ttf

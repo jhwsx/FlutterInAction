@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-
+// 它们本身不会保存当前选中状态，选中状态都是由父组件来管理的
 class SwitchAndCheckBoxRoute extends StatefulWidget {
   @override
   _SwitchAndCheckBoxRouteState createState() => _SwitchAndCheckBoxRouteState();
 }
 
 class _SwitchAndCheckBoxRouteState extends State<SwitchAndCheckBoxRoute> {
-
   var _switchState1 = false;
 
   _handleSwitch1Changed(bool newValue) {
@@ -38,6 +37,7 @@ class _SwitchAndCheckBoxRouteState extends State<SwitchAndCheckBoxRoute> {
       _checkBoxState3 = newValue;
     });
   }
+
   var _checkBoxState4 = true;
   var _checkBoxState5 = false;
   var _checkBoxState6 = false;
@@ -50,7 +50,6 @@ class _SwitchAndCheckBoxRouteState extends State<SwitchAndCheckBoxRoute> {
     });
   }
 
-
   _handleCheckBox5Changed(bool newValue) {
     setState(() {
       _checkBoxState4 = false;
@@ -58,7 +57,6 @@ class _SwitchAndCheckBoxRouteState extends State<SwitchAndCheckBoxRoute> {
       _checkBoxState6 = false;
     });
   }
-
 
   _handleCheckBox6Changed(bool newValue) {
     setState(() {
@@ -114,7 +112,7 @@ class _SwitchAndCheckBoxRouteState extends State<SwitchAndCheckBoxRoute> {
                 // 对勾的颜色
                 checkColor: Colors.blue,
                 onChanged: _handleCheckBox3Changed,
-                tristate: true,
+                tristate: true, // 三种状态的意思
               ),
               Text(_getCheckBoxState3Text()),
             ],
@@ -129,6 +127,9 @@ class _SwitchAndCheckBoxRouteState extends State<SwitchAndCheckBoxRoute> {
                 onChanged: _handleCheckBox4Changed,
               ),
               Text('火车'),
+              SizedBox(
+                width: 10,
+              ),
               Checkbox(
                 value: _checkBoxState5,
                 activeColor: Colors.green,
@@ -137,6 +138,9 @@ class _SwitchAndCheckBoxRouteState extends State<SwitchAndCheckBoxRoute> {
                 onChanged: _handleCheckBox5Changed,
               ),
               Text('汽车'),
+              SizedBox(
+                width: 10,
+              ),
               Checkbox(
                 value: _checkBoxState6,
                 activeColor: Colors.green,
@@ -153,11 +157,9 @@ class _SwitchAndCheckBoxRouteState extends State<SwitchAndCheckBoxRoute> {
   }
 
   String _getCheckBoxState3Text() {
-      if(_checkBoxState3 == null) {
-        return '未全选';
-      }
-      return _checkBoxState3 ? '全选' : '全不选';
+    if (_checkBoxState3 == null) {
+      return '未全选';
+    }
+    return _checkBoxState3 ? '全选' : '全不选';
   }
 }
-
-

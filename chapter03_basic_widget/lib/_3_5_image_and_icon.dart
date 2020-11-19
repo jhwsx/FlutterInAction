@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // 知识点:
 // 图片加载
 // 字体图标: 使用Material Design字体图标；使用自定义字体图标
@@ -17,25 +18,25 @@ class ImageIconRoute extends StatelessWidget {
           children: <Widget>[
             Image(
               // 不指定宽高,图片会根据当前父容器的限制,尽量显示原始图片大小.
-              image: AssetImage('assets/images/avatar.png'),
+              image: AssetImage('images/avatar.png'),
             ),
             Image(
               // 指定了宽度,另一个属性默认是按比例缩放
-              image: AssetImage("assets/images/avatar.png"),
+              image: AssetImage("images/avatar.png"),
               width: 100,
             ),
             Image(
               // 指定了高度,另一个属性默认是按比例缩放
-              image: AssetImage('assets/images/avatar.png'),
+              image: AssetImage('images/avatar.png'),
               height: 50,
             ),
             Image(
-              image: AssetImage('assets/images/avatar.png'),
+              image: AssetImage('images/avatar.png'),
               height: 50,
               width: 100,
             ),
             Image.asset(
-              "assets/images/avatar.png",
+              "images/avatar.png",
               width: 100,
             ),
             Image(
@@ -49,14 +50,20 @@ class ImageIconRoute extends StatelessWidget {
               width: 100,
             ),
             Image(
-              image: AssetImage('assets/images/avatar.png'),
+              image: AssetImage('images/avatar.png'),
               width: 100,
               height: 100,
               color: Colors.red[100],
               colorBlendMode: BlendMode.lighten,
             ),
             Image(
-              image: AssetImage('assets/images/avatar.png'),
+              image: AssetImage('images/avatar.png'),
+              width: 100,
+              color: Colors.blue,
+              colorBlendMode: BlendMode.difference,
+            ),
+            Image(
+              image: AssetImage('images/avatar.png'),
               width: 100,
               height: 200,
               repeat: ImageRepeat.repeatY,
@@ -111,19 +118,19 @@ class ImageIconRoute extends StatelessWidget {
             Column(
               children: [
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 50,
                   fit: BoxFit.fill, // 通过改变原图的宽高比来填充目标容器
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 50,
                   height: 100,
                   fit: BoxFit.fill, // 通过改变原图的宽高比来填充目标容器
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 50,
                   fit: BoxFit.contain,
@@ -131,19 +138,19 @@ class ImageIconRoute extends StatelessWidget {
                   // target box.这是图片的默认适应规则，图片会在保证图片本身长宽比不变的情况下缩放以适应当前显示空间，图片不会变形。
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 50,
                   height: 100,
                   fit: BoxFit.contain, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 100,
                   fit: BoxFit.contain, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 50,
                   fit: BoxFit.cover,
@@ -151,19 +158,19 @@ class ImageIconRoute extends StatelessWidget {
                   // 会按图片的长宽比放大后居中填满显示空间，图片不会变形，超出显示空间部分会被剪裁。
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 50,
                   height: 100,
                   fit: BoxFit.cover, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 100,
                   fit: BoxFit.cover, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 50,
                   fit: BoxFit.fitWidth,
@@ -172,19 +179,19 @@ class ImageIconRoute extends StatelessWidget {
                   // 图片的宽度会缩放到显示空间的宽度，高度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 50,
                   height: 100,
                   fit: BoxFit.fitWidth, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 100,
                   fit: BoxFit.fitWidth, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 50,
                   fit: BoxFit.fitHeight,
@@ -193,19 +200,19 @@ class ImageIconRoute extends StatelessWidget {
                   // 图片的高度会缩放到显示空间的高度，宽度会按比例缩放，然后居中显示，图片不会变形，超出显示空间部分会被剪裁。
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 50,
                   height: 100,
                   fit: BoxFit.fitHeight, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 100,
                   fit: BoxFit.fitHeight, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 50,
                   fit: BoxFit.none,
@@ -215,19 +222,19 @@ class ImageIconRoute extends StatelessWidget {
                   // 图片没有适应策略，会在显示空间内显示图片，如果图片比显示空间大，则显示空间只会显示图片中间部分。
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 50,
                   height: 100,
                   fit: BoxFit.none, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 100,
                   fit: BoxFit.none, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 50,
                   fit: BoxFit.scaleDown,
@@ -239,13 +246,13 @@ class ImageIconRoute extends StatelessWidget {
                   // is the same as `none`.
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 50,
                   height: 100,
                   fit: BoxFit.scaleDown, //
                 ),
                 Image(
-                  image: AssetImage('assets/images/avatar.png'),
+                  image: AssetImage('images/avatar.png'),
                   width: 100,
                   height: 100,
                   fit: BoxFit.scaleDown, //
@@ -293,12 +300,12 @@ class ImageIconRoute extends StatelessWidget {
 
 class MyIconFamily {
   static const IconData accessibility = const IconData(
-    0xe924,
+    0xe7b4,
     fontFamily: 'myIconFamily',
     matchTextDirection: true,
   );
   static const IconData phone = const IconData(
-    0xe7f4,
+    0xe661,
     fontFamily: 'myIconFamily',
     matchTextDirection: true,
   );
