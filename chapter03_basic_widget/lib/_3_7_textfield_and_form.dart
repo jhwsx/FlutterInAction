@@ -86,189 +86,63 @@ class _TextFieldAndFormRouteState extends State<TextFieldAndFormRoute> {
 // 那么 maxLines 就只能而且必须设置为 1, 否则 Obscured fields cannot be multiline.
 
 // 12, final List<TextInputFormatter> inputFormatters：对输入文本进行校验
-class TextFieldRoute extends StatelessWidget {
+class TextFieldRoute extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    final usernameController = TextEditingController();
-    usernameController.addListener(() {
-      print('input ${usernameController.text}');
-    });
-    final passwordController = TextEditingController();
-    FocusNode focusNode1 = FocusNode();
-    focusNode1.addListener(() {
-      print('用户名 TextField 的焦点：${focusNode1.hasFocus}');
-    });
-    FocusNode focusNode2 = FocusNode();
-    focusNode2.addListener(() {
-      print('密码 TextField 的焦点：${focusNode2.hasFocus}');
-    });
-
-    return Scaffold(
-      appBar: AppBar(title: Text('输入框')),
-      body: Column(
-        children: [
-          TextField(
-            // 关联 FocusNode1
-            focusNode: focusNode1,
-            controller: usernameController,
-            maxLength: 20,
-            maxLines: 1,
-            autocorrect: true,
-            maxLengthEnforced: false,
-            inputFormatters: [LengthLimitingTextInputFormatter(30)],
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-            ),
-            autofocus: false,
-            showCursor: true,
-            cursorColor: Colors.blue,
-            cursorWidth: 2.0,
-            cursorRadius: Radius.circular(1.0),
-            decoration: InputDecoration(
-              icon: Icon(Icons.person, color: Colors.blue),
-              labelText: '用户名',
-              labelStyle: TextStyle(color: Colors.blue, fontSize: 18),
-              helperText: '用户名为手机号或者邮箱',
-              helperStyle: TextStyle(
-                color: Colors.lightBlue,
-                fontSize: 16.0,
-              ),
-              hintText: '请输入用户名',
-              hintStyle: TextStyle(
-                color: Colors.grey[600],
-              ),
-              errorStyle: TextStyle(
-                color: Colors.red,
-                fontSize: 16,
-              ),
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-            ),
-            onChanged: (String value) {
-              print('onChanged: $value');
-            },
-            enabled: true,
-            textAlign: TextAlign.start,
-            textInputAction: TextInputAction.next,
-            keyboardType: TextInputType.text,
-            obscureText: false,
-          ),
-          TextField(
-            // 关联 FocusNode2
-            focusNode: focusNode2,
-            controller: passwordController,
-            maxLength: 10,
-            maxLines: 1,
-            autocorrect: true,
-            maxLengthEnforced: false,
-            inputFormatters: [LengthLimitingTextInputFormatter(30)],
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-            ),
-            autofocus: false,
-            showCursor: true,
-            cursorColor: Colors.blue,
-            cursorWidth: 2.0,
-            cursorRadius: Radius.circular(1.0),
-            decoration: InputDecoration(
-                icon: Icon(Icons.lock, color: Colors.blue),
-                labelText: '密码',
-                labelStyle: TextStyle(color: Colors.blue, fontSize: 18),
-                helperText: '密码为纯数字，不大于10位',
-                helperStyle: TextStyle(
-                  color: Colors.lightBlue,
-                  fontSize: 16.0,
-                ),
-                hintText: '请输入密码',
-                hintStyle: TextStyle(
-                  color: Colors.grey[600],
-                ),
-                errorStyle: TextStyle(
-                  color: Colors.red,
-                  fontSize: 16,
-                ),
-                floatingLabelBehavior: FloatingLabelBehavior.always),
-            onChanged: (String value) {
-              print('onChanged: $value');
-            },
-            onSubmitted: (String value) {
-              print('onSubmitted');
-            },
-            enabled: true,
-            textAlign: TextAlign.start,
-            keyboardType: TextInputType.number,
-            textInputAction: TextInputAction.done,
-            obscureText: true,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Builder(builder: (context) {
-                return FlatButton(
-                  onPressed: () {
-                    var scaffoldState = Scaffold.of(context);
-                    scaffoldState.showSnackBar(SnackBar(
-                      // 获取输入内容：通过 controller 来获取。
-                      content: Text(
-                        '用户名：${usernameController.text}, 密码：${passwordController.text}',
-                      ),
-                    ));
-                  },
-                  color: Colors.blue,
-                  colorBrightness: Brightness.dark,
-                  child: Text('提交'),
-                );
-              }),
-              Builder(builder: (context) {
-                return FlatButton(
-                  onPressed: () {
-                    FocusScope.of(context).requestFocus(focusNode2);
-                  },
-                  color: Colors.blue,
-                  colorBrightness: Brightness.dark,
-                  child: Text('移动焦点'),
-                );
-              }),
-              FlatButton(
-                onPressed: () {
-                  // 当所有编辑框都失去焦点时键盘就会收起
-                  focusNode1.unfocus();
-                  focusNode2.unfocus();
-                },
-                child: Text('隐藏键盘'),
-                color: Colors.blue,
-                colorBrightness: Brightness.dark,
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+  _TextFieldState createState() {
+    return _TextFieldState();
   }
 }
 
-class FormRoute extends StatefulWidget {
-  @override
-  _FormRouteState createState() => _FormRouteState();
-}
+class _TextFieldState extends State<TextFieldRoute> {
+  var _usernameController;
+  var _passwordController;
+  FocusNode _focusNode1;
+  FocusNode _focusNode2;
 
-class _FormRouteState extends State<FormRoute> {
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
-  GlobalKey _formKey = GlobalKey<FormState>();
+  @override
+  void initState() {
+    super.initState();
+    _usernameController = TextEditingController();
+    _passwordController = TextEditingController();
+    _focusNode1 = FocusNode();
+    _focusNode2 = FocusNode();
+    // _usernameController.text = "wangzhichao";
+    // _usernameController.selection = TextSelection(
+    //   baseOffset: 4,
+    //   extentOffset: _usernameController.text.length,
+    // );
+    _usernameController.addListener(() {
+      print('input ${_usernameController.text}');
+    });
+    _focusNode1.addListener(() {
+      print('用户名 TextField 的焦点：${_focusNode1.hasFocus}');
+    });
+    _focusNode2.addListener(() {
+      print('密码 TextField 的焦点：${_focusNode2.hasFocus}');
+    });
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    _focusNode1.dispose();
+    _focusNode2.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('表单')),
-      body: Form(
-        key: _formKey, // 设置globalKey，用于后面获取FormState
-        autovalidate: true, // 开启自动校验
+      appBar: AppBar(title: Text('输入框')),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextFormField(
-              controller: usernameController,
+            TextField(
+              // 关联 FocusNode1
+              focusNode: _focusNode1,
+              controller: _usernameController,
               maxLength: 20,
               maxLines: 1,
               autocorrect: true,
@@ -278,7 +152,7 @@ class _FormRouteState extends State<FormRoute> {
                 color: Colors.black,
                 fontSize: 18,
               ),
-              autofocus: false,
+              autofocus: true,
               showCursor: true,
               cursorColor: Colors.blue,
               cursorWidth: 2.0,
@@ -301,6 +175,9 @@ class _FormRouteState extends State<FormRoute> {
                   fontSize: 16,
                 ),
                 floatingLabelBehavior: FloatingLabelBehavior.always,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
               ),
               onChanged: (String value) {
                 print('onChanged: $value');
@@ -310,12 +187,14 @@ class _FormRouteState extends State<FormRoute> {
               textInputAction: TextInputAction.next,
               keyboardType: TextInputType.text,
               obscureText: false,
-              validator: (v) {
-                return v.trim().length > 0 ? null : '用户名不可以为空';
-              },
             ),
-            TextFormField(
-              controller: passwordController,
+            SizedBox(
+              height: 16,
+            ),
+            TextField(
+              // 关联 FocusNode2
+              focusNode: _focusNode2,
+              controller: _passwordController,
               maxLength: 10,
               maxLines: 1,
               autocorrect: true,
@@ -331,15 +210,174 @@ class _FormRouteState extends State<FormRoute> {
               cursorWidth: 2.0,
               cursorRadius: Radius.circular(1.0),
               decoration: InputDecoration(
-                  icon: Icon(Icons.lock, color: Colors.blue),
-                  labelText: '密码',
+                icon: Icon(Icons.lock, color: Colors.blue),
+                labelText: '密码',
+                labelStyle: TextStyle(color: Colors.blue, fontSize: 18),
+                helperText: '密码为纯数字，不大于10位',
+                helperStyle: TextStyle(
+                  color: Colors.lightBlue,
+                  fontSize: 16.0,
+                ),
+                hintText: '请输入密码',
+                hintStyle: TextStyle(
+                  color: Colors.grey[600],
+                ),
+                errorStyle: TextStyle(
+                  color: Colors.red,
+                  fontSize: 16,
+                ),
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                ),
+              ),
+              onChanged: (String value) {
+                print('onChanged: $value');
+              },
+              onSubmitted: (String value) {
+                print('onSubmitted');
+              },
+              enabled: true,
+              textAlign: TextAlign.start,
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.done,
+              obscureText: true,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Builder(builder: (context) {
+                  return TextButton(
+                    onPressed: () {
+                      var scaffoldState = Scaffold.of(context);
+                      scaffoldState.showSnackBar(SnackBar(
+                        // 获取输入内容：通过 controller 来获取。
+                        content: Text(
+                          '用户名：${_usernameController.text}, 密码：${_passwordController.text}',
+                        ),
+                      ));
+                    },
+                    child: Text(
+                      '提交',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith(
+                          (states) => Colors.blue),
+                    ),
+                  );
+                }),
+                Builder(builder: (context) {
+                  return TextButton(
+                    onPressed: () {
+                      var focusedChild = FocusScope.of(context).focusedChild;
+                      if (focusedChild == _focusNode1) {
+                        FocusScope.of(context).requestFocus(_focusNode2);
+                      } else {
+                        FocusScope.of(context).requestFocus(_focusNode1);
+                      }
+                    },
+                    child: Text(
+                      '移动焦点',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith(
+                          (states) => Colors.blue),
+                    ),
+                  );
+                }),
+                TextButton(
+                  onPressed: () {
+                    // 当所有编辑框都失去焦点时键盘就会收起
+                    _focusNode1.unfocus();
+                    _focusNode2.unfocus();
+                  },
+                  child: Text(
+                    '隐藏键盘',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.resolveWith(
+                        (states) => Colors.blue),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class FormRoute extends StatefulWidget {
+  @override
+  _FormRouteState createState() => _FormRouteState();
+}
+
+class _FormRouteState extends State<FormRoute> {
+  var _usernameController;
+  var _passwordController;
+  GlobalKey _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _usernameController = TextEditingController();
+    _passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('表单')),
+      body: Form(
+        key: _formKey, // 设置globalKey，用于后面获取FormState
+        autovalidateMode: AutovalidateMode.always, // 开启自动校验
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              TextFormField(
+                controller: _usernameController,
+                maxLength: 20,
+                maxLines: 1,
+                autocorrect: true,
+                maxLengthEnforced: false,
+                inputFormatters: [LengthLimitingTextInputFormatter(30)],
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                ),
+                autofocus: false,
+                showCursor: true,
+                cursorColor: Colors.blue,
+                cursorWidth: 2.0,
+                cursorRadius: Radius.circular(1.0),
+                decoration: InputDecoration(
+                  icon: Icon(Icons.person, color: Colors.blue),
+                  labelText: '用户名',
                   labelStyle: TextStyle(color: Colors.blue, fontSize: 18),
-                  helperText: '密码为纯数字，不大于10位',
+                  helperText: '用户名为手机号或者邮箱',
                   helperStyle: TextStyle(
                     color: Colors.lightBlue,
                     fontSize: 16.0,
                   ),
-                  hintText: '请输入密码',
+                  hintText: '请输入用户名',
                   hintStyle: TextStyle(
                     color: Colors.grey[600],
                   ),
@@ -347,44 +385,115 @@ class _FormRouteState extends State<FormRoute> {
                     color: Colors.red,
                     fontSize: 16,
                   ),
-                  floatingLabelBehavior: FloatingLabelBehavior.always),
-              onChanged: (String value) {
-                print('onChanged: $value');
-              },
-              enabled: true,
-              textAlign: TextAlign.start,
-              keyboardType: TextInputType.number,
-              textInputAction: TextInputAction.done,
-              obscureText: true,
-              validator: (v) {
-                return v.trim().length > 5 ? null : '密码不能少于 6 位';
-              },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Builder(builder: (context) {
-                  return FlatButton(
-                    onPressed: () {
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                ),
+                onChanged: (String value) {
+                  print('onChanged: $value');
+                },
+                enabled: true,
+                textAlign: TextAlign.start,
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.text,
+                obscureText: false,
+                onSaved: (String text) {
+                  print('onSaved: $text');
+                },
+                validator: (v) {
+                  return v.trim().length > 0 ? null : '用户名不可以为空';
+                },
+              ),
+              TextFormField(
+                controller: _passwordController,
+                maxLength: 10,
+                maxLines: 1,
+                autocorrect: true,
+                maxLengthEnforced: false,
+                inputFormatters: [LengthLimitingTextInputFormatter(30)],
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                ),
+                autofocus: false,
+                showCursor: true,
+                cursorColor: Colors.blue,
+                cursorWidth: 2.0,
+                cursorRadius: Radius.circular(1.0),
+                decoration: InputDecoration(
+                    icon: Icon(Icons.lock, color: Colors.blue),
+                    labelText: '密码',
+                    labelStyle: TextStyle(color: Colors.blue, fontSize: 18),
+                    helperText: '密码为纯数字，不大于10位',
+                    helperStyle: TextStyle(
+                      color: Colors.lightBlue,
+                      fontSize: 16.0,
+                    ),
+                    hintText: '请输入密码',
+                    hintStyle: TextStyle(
+                      color: Colors.grey[600],
+                    ),
+                    errorStyle: TextStyle(
+                      color: Colors.red,
+                      fontSize: 16,
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always),
+                onChanged: (String value) {
+                  print('onChanged: $value');
+                },
+                enabled: true,
+                textAlign: TextAlign.start,
+                keyboardType: TextInputType.number,
+                textInputAction: TextInputAction.done,
+                obscureText: true,
+                validator: (v) {
+                  return v.trim().length > 5 ? null : '密码不能少于 6 位';
+                },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Builder(builder: (context) {
+                    return FlatButton(
+                      onPressed: () {
 //                      FormState formState = Form.of(context);
-                       if ((_formKey.currentState as FormState).validate()) {
-                         var scaffoldState = Scaffold.of(context);
-                         scaffoldState.showSnackBar(SnackBar(
-                           // 获取输入内容：通过 controller 来获取。
-                           content: Text(
-                             '用户名：${usernameController.text}, 密码：${passwordController.text}',
-                           ),
-                         ));
-                       }
-                    },
-                    color: Colors.blue,
-                    colorBrightness: Brightness.dark,
-                    child: Text('提交'),
-                  );
-                }),
-              ],
-            ),
-          ],
+                        var currentState = (_formKey.currentState as FormState);
+                        if (currentState.validate()) {
+                          var scaffoldState = Scaffold.of(context);
+                          scaffoldState.showSnackBar(SnackBar(
+                            // 获取输入内容：通过 controller 来获取。
+                            content: Text(
+                              '用户名：${_usernameController.text}, 密码：${_passwordController.text}',
+                            ),
+                          ));
+                        }
+                      },
+                      color: Colors.blue,
+                      colorBrightness: Brightness.dark,
+                      child: Text('提交'),
+                    );
+                  }),
+                  Builder(builder: (context) {
+                    return FlatButton(
+                      onPressed: () {
+//                      FormState formState = Form.of(context);
+                        var currentState = (_formKey.currentState as FormState);
+                        currentState.save();
+                        var scaffoldState = Scaffold.of(context);
+                        scaffoldState.showSnackBar(SnackBar(
+                          // 获取输入内容：通过 controller 来获取。
+                          content: Text(
+                            '保存了',
+                          ),
+                        ));
+                      },
+                      color: Colors.blue,
+                      colorBrightness: Brightness.dark,
+                      child: Text('保存'),
+                    );
+                  }),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

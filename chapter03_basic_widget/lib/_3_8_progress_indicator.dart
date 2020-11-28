@@ -7,13 +7,14 @@ class ProgressIndicatorRoute extends StatefulWidget {
 }
 
 class _ProgressIndicatorRouteState extends State<ProgressIndicatorRoute>
-with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   AnimationController _animationController;
 
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 3));
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 3));
     _animationController.forward();
     _animationController.addListener(() => setState(() {}));
   }
@@ -36,6 +37,7 @@ with SingleTickerProviderStateMixin {
             // 不确定进度的进度条，value 为 null，则进度指示器执行一个循环动画
             LinearProgressIndicator(
               backgroundColor: Colors.grey[200],
+              value: null,
               valueColor: AlwaysStoppedAnimation(Colors.blue),
             ),
             // 确定进度的进度条，value 为 [0, 1] 之间的值，则进度条是确定进度的。
@@ -48,6 +50,7 @@ with SingleTickerProviderStateMixin {
             CircularProgressIndicator(
               backgroundColor: Colors.grey[200],
               valueColor: AlwaysStoppedAnimation(Colors.blue),
+              value: null,
             ),
             CircularProgressIndicator(
               backgroundColor: Colors.grey[200],
@@ -82,7 +85,8 @@ with SingleTickerProviderStateMixin {
             Text('——进度色动画：'),
             LinearProgressIndicator(
               backgroundColor: Colors.grey[200],
-              valueColor: ColorTween(begin: Colors.grey, end: Colors.blue).animate(_animationController),
+              valueColor: ColorTween(begin: Colors.grey, end: Colors.blue)
+                  .animate(_animationController),
               value: _animationController.value,
             ),
           ].map((e) {
