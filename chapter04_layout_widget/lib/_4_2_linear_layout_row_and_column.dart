@@ -155,15 +155,43 @@ class ColumnRoute extends StatelessWidget {
       appBar: AppBar(
         title: Text('Column'),
       ),
-      body: Column(
-        // Column 的高度是占据了屏幕的高度的空间
-        // crossAxisAlignment: CrossAxisAlignment.center 指定了在相交轴上如何定位 children
-        // 设置为 center，表示在相交轴上居中定位 children。
-        // 相交轴上的宽度是由最宽的 child 决定的，这里是由 world 这个文本决定的。
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start, // 默认是 center
         children: <Widget>[
-          Text('hi'),
-          Text('world'),
+          Column(
+            // Column 的高度是占据了屏幕的高度的空间
+            // crossAxisAlignment: CrossAxisAlignment.center 指定了在相交轴上如何定位 children
+            // 设置为 center，表示在相交轴上居中定位 children。
+            // 相交轴上的宽度是由最宽的 child 决定的，这里是由 world 这个文本决定的。
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text('hi'),
+              Text('world'),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('hi'),
+              Text('world'),
+            ],
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text('hi'),
+              Text('world'),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              Text('hi'),
+              Text('world'),
+            ],
+          ),
         ],
       ),
     );
@@ -275,7 +303,7 @@ class SpecialCaseRoute extends StatelessWidget {
             children: [
               Container(
                 color: Colors.red,
-                // 里面的 Column 的高度是实际的大小。
+                // 按理说，里面的 Column 也应该有最大的高度，但是实际上里面的 Column 的高度是实际的大小。
                 child: Column(
                   children: [
                     Text('hello world!'),

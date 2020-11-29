@@ -43,7 +43,7 @@ class FlexRoute extends StatelessWidget {
               ),
             ],
           ),
-          Text('垂直方向的红色色块：绿色色块：蓝色色块为 2:1:1'),
+          Text('垂直方向的红色色块：空白色块：蓝色色块为 2:1:1'),
           SizedBox(
             // SizedBox 是有指定的尺寸的 box。
             height: 300,
@@ -61,14 +61,7 @@ class FlexRoute extends StatelessWidget {
 //                    width: 100,
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    color: Colors.green,
-                    height: 50,
-//                    width: 100,
-                  ),
-                ),
+                Spacer(),
                 Expanded(
                   flex: 1,
                   child: Container(
@@ -82,6 +75,22 @@ class FlexRoute extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class Spacer extends StatelessWidget {
+  const Spacer({Key key, this.flex = 1})
+      : assert(flex != null),
+        assert(flex > 0),
+        super(key: key);
+  final int flex;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: const SizedBox.shrink(),
+      flex: 1,
     );
   }
 }

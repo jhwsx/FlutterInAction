@@ -42,6 +42,14 @@ class WrapAndFlowRoute extends StatelessWidget {
             },
             child: Text('Wrap Demo'),
           ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return FlowDemoRoute();
+              }));
+            },
+            child: Text('Flow Demo'),
+          ),
         ],
       ),
     );
@@ -128,5 +136,94 @@ class WrapDemoRoute extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class FlowDemoRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("FlowDemo"),
+      ),
+      body: Flow(
+        delegate: FlowDemoDelegate(margin: EdgeInsets.all(10.0)),
+        children: <Widget>[
+          Container(
+            width: 100.0,
+            height: 80.0,
+            color: Colors.red,
+          ),
+          Container(
+            width: 100.0,
+            height: 80.0,
+            color: Colors.orange,
+          ),
+          Container(
+            width: 100.0,
+            height: 80.0,
+            color: Colors.yellow,
+          ),
+          Container(
+            width: 100.0,
+            height: 80.0,
+            color: Colors.green,
+          ),
+          Container(
+            width: 100.0,
+            height: 80.0,
+            color: Colors.blue,
+          ),
+          Container(
+            width: 100.0,
+            height: 80.0,
+            color: Colors.cyan,
+          ),
+          Container(
+            width: 100.0,
+            height: 80.0,
+            color: Colors.purple,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class FlowDemoDelegate extends FlowDelegate {
+  EdgeInsets margin = EdgeInsets.zero;
+
+  FlowDemoDelegate({this.margin});
+
+  @override
+  void paintChildren(FlowPaintingContext context) {
+    var x = margin.left;
+    var y = margin.top;
+    //计算每一个子widget的位置
+    for (int i = 0; i < context.childCount; i++) {
+      var w = context.getChildSize(i).width + x + margin.right;
+      if (w < context.size.width) {
+        context.paintChild(i,
+            transform: new Matrix4.translationValues(x, y, 0.0));
+        x = w + margin.left;
+      } else {
+        x = margin.left;
+        y += context.getChildSize(i).height + margin.top + margin.bottom;
+        //绘制子widget(有优化)
+        context.paintChild(i,
+            transform: new Matrix4.translationValues(x, y, 0.0));
+        x += context.getChildSize(i).width + margin.left + margin.right;
+      }
+    }
+  }
+
+  @override
+  Size getSize(BoxConstraints constraints) {
+    return Size(double.infinity, 200.0);
+  }
+
+  @override
+  bool shouldRepaint(covariant FlowDelegate oldDelegate) {
+    return oldDelegate != this;
   }
 }

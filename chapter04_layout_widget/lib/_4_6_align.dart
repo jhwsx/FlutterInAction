@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 //// 可以比 1.0 大也可以比 1.0 小，但必须是正值。
 // 4, FractionalOffset 继承自 Alignment， 和 Alignment 的唯一区别是坐标原点不同，
 // FractionalOffset 的坐标原点为矩形的左侧顶点，这和布局系统的一致。 而 Alignment Widget 会以矩形的中心点作为坐标原点
-// 实际偏移 = (FractionalOffse.x * childWidth, FractionalOffse.y * childHeight)
+// 实际偏移 = (FractionalOffset.x * childWidth, FractionalOffset.y * childHeight)
 // 5, Align 和 Stack 的区别：
 // Align 只能有一个子组件，不存在堆叠，而 Stack 可以有多个子组件，而子组件可以堆叠。
 // 定位参考系统不同，Stack 定位的参考系可以是父容器的 4 个顶点，而 Align 需要先通过 alignment 参数

@@ -30,7 +30,7 @@ class StackAndPostionedRoute extends StatelessWidget {
                 return StackDemo1Route();
               }));
             },
-            child: Text('Stack Demo1'),
+            child: Text('Stack Demo1-演示 Positioned 使用'),
           ),
           RaisedButton(
             onPressed: () {
@@ -38,7 +38,7 @@ class StackAndPostionedRoute extends StatelessWidget {
                 return StackDemo2Route();
               }));
             },
-            child: Text('Stack Demo2'),
+            child: Text('Stack Demo2-演示 fit 属性的使用'),
           ),
           RaisedButton(
             onPressed: () {
@@ -46,7 +46,7 @@ class StackAndPostionedRoute extends StatelessWidget {
                 return StackDemo3Route();
               }));
             },
-            child: Text('Stack Demo3'),
+            child: Text('Stack Demo3-演示默认是左上角对齐的'),
           ),
           RaisedButton(
             onPressed: () {
@@ -54,7 +54,7 @@ class StackAndPostionedRoute extends StatelessWidget {
                 return StackDemo4Route();
               }));
             },
-            child: Text('Stack Demo4'),
+            child: Text('Stack Demo4-实际的例子'),
           ),
           RaisedButton(
             onPressed: () {
@@ -62,7 +62,15 @@ class StackAndPostionedRoute extends StatelessWidget {
                 return StackDemo5Route();
               }));
             },
-            child: Text('Stack Demo5'),
+            child: Text('Stack Demo5-演示 overflow'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return StackDemo6Route();
+              }));
+            },
+            child: Text('Stack Demo6-演示类似 FrameLayout 的效果，叠加'),
           ),
         ],
       ),
@@ -256,8 +264,11 @@ class StackDemo5Route extends StatelessWidget {
         width: 250,
         height: 250,
         child: Stack(
-          overflow: Overflow.visible,
-//          overflow: Overflow.clip,
+          // 如何显示超出 Stack 显示空间的子组件？
+          // 超出部分不会被裁剪；
+          // overflow: Overflow.visible,
+          // 超出部分会被裁剪。
+         overflow: Overflow.clip,
           children: [
             Container(
               width: 250,
@@ -267,6 +278,53 @@ class StackDemo5Route extends StatelessWidget {
             Positioned(
               left: 10,
               child: Text('123456789abcde' * 10),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class StackDemo6Route extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: AppBar(title: Text("Stack布局")),
+      body: ConstrainedBox(
+        constraints: BoxConstraints.expand(),
+        child: Stack(
+          alignment: AlignmentDirectional.center,
+          children: <Widget>[
+            Container(
+              color: Colors.red,
+              width: 200,
+              height: 200,
+            ),
+            Container(
+              color: Colors.orange,
+              width: 180,
+              height: 180,
+            ),
+            Container(
+              color: Colors.yellow,
+              width: 160,
+              height: 160,
+            ),
+            Container(
+              color: Colors.blue,
+              width: 140,
+              height: 140,
+            ),
+            Container(
+              color: Colors.cyan,
+              width: 120,
+              height: 120,
+            ),
+            Container(
+              color: Colors.purple,
+              width: 100,
+              height: 100,
             ),
           ],
         ),
