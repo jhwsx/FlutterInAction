@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '_5_5_container.dart';
+import '_5_6_scaffold_tabbar_bottomnavi.dart';
 
 void main() {
   runApp(MyApp());
@@ -93,6 +94,16 @@ class _MyHomePageState extends State<MyHomePage> {
             colorBrightness: Brightness.dark,
             color: Colors.blue,
             child: Text('5.5 Container（容器）'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ScaffoldTabBarBottomNaviRoute();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('5.6 Scaffold、TabBar、底部导航'),
           ),
         ],
       ),

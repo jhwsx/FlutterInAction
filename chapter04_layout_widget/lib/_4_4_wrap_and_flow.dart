@@ -8,8 +8,7 @@ import 'package:flutter/material.dart';
 //    final double spacing; 主轴方向子 widget 的间距, 默认是 0.0
 //    final double runSpacing; 相交轴方向的间距
 //    final WrapAlignment alignment; 沿主轴方向如何对齐
-// 5, Flow 暂时不看
-// TODO Flow 暂时没有学习
+// 5, Flow 有些复杂，需要自己编写代码
 class WrapAndFlowRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

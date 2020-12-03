@@ -78,19 +78,3 @@ class FlexRoute extends StatelessWidget {
     );
   }
 }
-
-class Spacer extends StatelessWidget {
-  const Spacer({Key key, this.flex = 1})
-      : assert(flex != null),
-        assert(flex > 0),
-        super(key: key);
-  final int flex;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: const SizedBox.shrink(),
-      flex: 1,
-    );
-  }
-}

@@ -3,9 +3,9 @@ import 'dart:math' as math;
 
 // 学习变换
 // 1, Transform的变换是应用在绘制阶段，而并不是应用在布局(layout)阶段，所以无论对子组件应用何种变化，
-// 其占用空间的大小和在屏幕上的位置都是固定不变的，因为这些是在布局阶段就确定的。
+// 其占用空间的大小和在屏幕上的位置都是固定不变的，因为这些是在布局阶段就确定的。示例:TransformFeatureRoute
 // 2, RotatedBox和Transform.rotate功能相似，它们都可以对子组件进行旋转变换，但是有一点不同：
-// RotatedBox的变换是在layout阶段，会影响在子组件的位置和大小。
+// RotatedBox的变换是在layout阶段，会影响在子组件的位置和大小。示例：RotatedBoxRoute。
 class TransformRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -99,8 +99,36 @@ class DecoratedBoxRoute extends StatelessWidget {
             child: SizedBox(
               width: 200,
               height: 100,
+              child: Center(
+                child: Text(
+                  "猫头鹰",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
           ),
+          SizedBox(
+            height: 8.0,
+          ),
+          DecoratedBox(
+            position: DecorationPosition.foreground,
+            decoration: BoxDecoration(
+              color: const Color(0x44ff0000),
+            ),
+
+            child: SizedBox(
+              width: 200,
+              height: 100,
+              child: Image(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                    'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+              ),
+            ),
+          )
         ],
       ),
     );

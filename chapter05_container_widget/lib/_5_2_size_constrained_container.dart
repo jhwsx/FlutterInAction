@@ -74,7 +74,7 @@ class SizeConstrainedContainerRoute extends StatelessWidget {
             child: Text('多重限制: 对于 maxWidth 和 maxHeight 来说，无效, 最终宽高都是0。'),
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 100.0, maxHeight: 20.0),
+            constraints: BoxConstraints(maxWidth: 100.0, maxHeight: 70.0),
             child: ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 50.0, maxHeight: 50.0),
               child: redBox,
@@ -84,7 +84,7 @@ class SizeConstrainedContainerRoute extends StatelessWidget {
             height: 8,
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 100.0, maxHeight: 20.0),
+            constraints: BoxConstraints(maxWidth: 100.0, maxHeight: 70.0),
             child: ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 50.0, maxHeight: 50.0),
               child: redBox,
