@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_in_action/chapter06_scrollable_widget/_6_5_custom_scrollview.dart';
+import 'package:flutter_in_action/chapter06_scrollable_widget/_6_6_scroll_controller.dart';
 import '_6_3_list_view.dart';
 import '_6_2_single_child_scrollview.dart';
 import '_6_4_grid_view.dart';
@@ -42,6 +44,26 @@ class Chapter06ScrollableWidget extends StatelessWidget {
             colorBrightness: Brightness.dark,
             color: Colors.blue,
             child: Text('6.4 GridView'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return CustomScrollViewRoute();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('6.5 CustomScrollView'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ScrollRoute();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('6.6 滚动监听及控制'),
           ),
         ],
       ),
