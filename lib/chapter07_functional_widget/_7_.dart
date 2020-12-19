@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_1_will_pop_scope.dart';
+import 'package:flutter_in_action/chapter07_functional_widget/_7_2_inherited_widget.dart';
 
 class Chapter07FunctionalWidget extends StatelessWidget {
   @override
@@ -20,6 +21,16 @@ class Chapter07FunctionalWidget extends StatelessWidget {
             colorBrightness: Brightness.dark,
             color: Colors.blue,
             child: Text('7.1 导航返回拦截（WillPopScope）'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return InheritedWidgetRoute();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('7.2 数据共享（InheritedWidget）'),
           ),
         ],
       ),
