@@ -3,6 +3,7 @@ import 'package:flutter_in_action/chapter02_first_flutter_app/firstflutterapp.da
 import 'package:flutter_in_action/chapter03_basic_widget/_3_.dart';
 import 'package:flutter_in_action/chapter05_container_widget/_5_.dart';
 import 'package:flutter_in_action/chapter06_scrollable_widget/_6_.dart';
+import 'package:flutter_in_action/chapter07_functional_widget/_7_.dart';
 
 import 'chapter04_layout_widget/_4_.dart';
 
@@ -97,6 +98,14 @@ class MyHomePage extends StatelessWidget {
               }));
             },
             child: Text("第六章：可滚动组件"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return Chapter07FunctionalWidget();
+              }));
+            },
+            child: Text("第七章：功能型组件"),
           ),
         ],
       ),
