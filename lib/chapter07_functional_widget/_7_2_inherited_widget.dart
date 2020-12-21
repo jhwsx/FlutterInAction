@@ -7,6 +7,7 @@ class InheritedWidgetRoute extends StatefulWidget {
 
 class _InheritedWidgetRouteState extends State<InheritedWidgetRoute> {
   int count = 0;
+
   // 每点击一次，count 会自增，然后重新 build，SharedDataWidget 中的 data 会更新，
   // 接着会调用 TestWidget 的 didChangeDependencies 方法，发生更新。
   _incrementCount() {
@@ -14,6 +15,7 @@ class _InheritedWidgetRouteState extends State<InheritedWidgetRoute> {
       ++count;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,20 +23,43 @@ class _InheritedWidgetRouteState extends State<InheritedWidgetRoute> {
         title: Text('7.2 数据共享（InheritedWidget）'),
       ),
       body: Center(
-        child: SharedDataWidget(data: count,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: TestWidget(), // 子 widget 有依赖 SharedDataWidget。
+            SharedDataWidget(
+              data: count,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: TestWidget1(), // 子 widget 有依赖 SharedDataWidget。
+                  ),
+                  RaisedButton(
+                    child: Text('Increment'),
+                    onPressed: _incrementCount,
+                  ),
+                ],
+              ),
             ),
-            RaisedButton(
-              child: Text('Increment'),
-              onPressed: _incrementCount,
+            SharedDataWidget(
+              data: count,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: TestWidget2(), // 子 widget 有依赖 SharedDataWidget。
+                  ),
+                  RaisedButton(
+                    child: Text('Increment2'),
+                    onPressed: _incrementCount,
+                  ),
+                ],
+              ),
             ),
+
           ],
-        ),),
+        ),
       ),
     );
   }
@@ -48,6 +73,14 @@ class SharedDataWidget extends InheritedWidget {
     return context.dependOnInheritedWidgetOfExactType<SharedDataWidget>();
   }
 
+  /// 这个方法的作用时获取 SharedDataWidget 的数据，但在 SharedDataWidget 发生变化时
+  /// 不会调用子或孙 widget 的 didChangeDependencies() 方法。
+  static SharedDataWidget of2(BuildContext context) {
+    return context
+        .getElementForInheritedWidgetOfExactType<SharedDataWidget>()
+        .widget;
+  }
+
   // 该回调决定当 data 发生变化时，是否通知子树中依赖 data 的 widget
   @override
   bool updateShouldNotify(covariant SharedDataWidget oldWidget) {
@@ -57,14 +90,16 @@ class SharedDataWidget extends InheritedWidget {
   }
 }
 
-class TestWidget extends StatefulWidget {
+class TestWidget1 extends StatefulWidget {
   @override
-  _TestWidgetState createState() => _TestWidgetState();
+  _TestWidget1State createState() => _TestWidget1State();
 }
 
-class _TestWidgetState extends State<TestWidget> {
+class _TestWidget1State extends State<TestWidget1> {
   @override
   Widget build(BuildContext context) {
+    // 如果不使用 InheritedWidget 中的共享数据，那么当点击按钮时，didChangeDependencies 不会回调。
+    // return Text("text");
     return Text(SharedDataWidget.of(context).data.toString());
   }
 
@@ -72,7 +107,27 @@ class _TestWidgetState extends State<TestWidget> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     // 父或祖先 widget 中的 InheritedWidget 改变（updateShouldNotify 返回 true）时
-    // 会被调用。如果 build 中没有依赖 InheritedWidget，则此回调不会被调用。
-    print('didChangeDependencies() called, because dependencies changed.');
+    // 会被调用。如果 build 方法中没有依赖 InheritedWidget，则此回调不会被调用。
+    print('_TestWidget1State didChangeDependencies() called, because dependencies changed.');
+  }
+}
+
+class TestWidget2 extends StatefulWidget {
+  @override
+  _TestWidget2State createState() => _TestWidget2State();
+}
+
+class _TestWidget2State extends State<TestWidget2> {
+  @override
+  Widget build(BuildContext context) {
+    return Text(SharedDataWidget.of2(context).data.toString());
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // 父或祖先 widget 中的 InheritedWidget 改变（updateShouldNotify 返回 true）时
+    // 会被调用。如果 build 方法中没有依赖 InheritedWidget，则此回调不会被调用。
+    print('_TestWidget2State didChangeDependencies() called, because dependencies changed.');
   }
 }
