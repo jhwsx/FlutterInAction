@@ -68,13 +68,13 @@ class _InheritedWidgetRouteState extends State<InheritedWidgetRoute> {
 class SharedDataWidget extends InheritedWidget {
   SharedDataWidget({@required this.data, Widget child}) : super(child: child);
   final int data; // 需要在子树中共享的数据，就是点击次数。
-  /// 这个方法的作用是方便子树的 widget 获取共享数据
+  /// 这个方法的作用是方便子树的 widget 获取共享数据，它会注册依赖关系。
   static SharedDataWidget of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<SharedDataWidget>();
   }
 
   /// 这个方法的作用时获取 SharedDataWidget 的数据，但在 SharedDataWidget 发生变化时
-  /// 不会调用子或孙 widget 的 didChangeDependencies() 方法。
+  /// 不会调用子或孙 widget 的 didChangeDependencies() 方法。它不会注册依赖关系。
   static SharedDataWidget of2(BuildContext context) {
     return context
         .getElementForInheritedWidgetOfExactType<SharedDataWidget>()
