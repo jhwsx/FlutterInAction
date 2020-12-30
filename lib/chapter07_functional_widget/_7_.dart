@@ -3,6 +3,7 @@ import 'package:flutter_in_action/chapter07_functional_widget/_7_1_will_pop_scop
 import 'package:flutter_in_action/chapter07_functional_widget/_7_2_inherited_widget.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_3_provider.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_4_color_theme.dart';
+import 'package:flutter_in_action/chapter07_functional_widget/_7_5_future_builder_stream_builder.dart';
 
 class Chapter07FunctionalWidget extends StatelessWidget {
   @override
@@ -53,6 +54,16 @@ class Chapter07FunctionalWidget extends StatelessWidget {
             colorBrightness: Brightness.dark,
             color: Colors.blue,
             child: Text('7.4 颜色和主题'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return FutureBuilderAndStreamBuilderRoute();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('7.5 异步UI更新（FutureBuilder、StreamBuilder）'),
           ),
         ],
       ),
