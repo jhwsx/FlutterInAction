@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // TODO Builder 是什么作用?
 // https://stackoverflow.com/questions/52088889/can-someone-explain-to-me-what-the-builder-class-does-in-flutter
-
+// https://api.flutter.dev/flutter/material/Scaffold/of.html
 class FetchStateRoute extends StatelessWidget {
   static GlobalKey<ScaffoldState> _globalKey = GlobalKey();
 

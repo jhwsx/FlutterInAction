@@ -4,6 +4,7 @@ import 'package:flutter_in_action/chapter07_functional_widget/_7_2_inherited_wid
 import 'package:flutter_in_action/chapter07_functional_widget/_7_3_provider.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_4_color_theme.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_5_future_builder_stream_builder.dart';
+import 'package:flutter_in_action/chapter07_functional_widget/_7_6_dialog.dart';
 
 class Chapter07FunctionalWidget extends StatelessWidget {
   @override
@@ -64,6 +65,16 @@ class Chapter07FunctionalWidget extends StatelessWidget {
             colorBrightness: Brightness.dark,
             color: Colors.blue,
             child: Text('7.5 异步UI更新（FutureBuilder、StreamBuilder）'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DialogRoute();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('7.6 对话框详解'),
           ),
         ],
       ),
