@@ -123,6 +123,7 @@ class _PointerEventRouteState extends State<PointerEventRoute> {
             ),
             Text("忽略 PointerEvent：使用 AbsorbPointer（absorb：吸收）, 可以不让子树响应 PointerEvent，"
                 "但是 AbsorbPointer 本身会参与命中测试。"),
+            // 会输出 up，不会输出 in
             Listener(
               child: AbsorbPointer(
                 child: Listener(
@@ -138,6 +139,7 @@ class _PointerEventRouteState extends State<PointerEventRoute> {
             ),
             Text("忽略 PointerEvent：使用 IgnorePointer 可以不让子树响应 PointerEvent，"
                 "但是 IgnorePointer 本身不会参与命中测试。"),
+            // 不会输出 up，不会输出 in
             Listener(
               child: IgnorePointer(
                 child: Listener(
