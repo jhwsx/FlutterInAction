@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_in_action/chapter08_eventhandling_notification/_8_2_gesture.dart';
+import 'package:flutter_in_action/chapter08_eventhandling_notification/_8_3_eventbus.dart';
 
 import '_8_1_pointer_event.dart';
 
@@ -32,6 +33,16 @@ class Chapter08Widget extends StatelessWidget {
             colorBrightness: Brightness.dark,
             color: Colors.blue,
             child: Text('8.2 手势识别'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return EventBusRoute();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('8.3 事件总线'),
           ),
         ],
       ),
