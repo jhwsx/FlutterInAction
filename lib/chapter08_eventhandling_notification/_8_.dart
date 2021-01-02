@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_in_action/chapter08_eventhandling_notification/_8_2_gesture.dart';
 import 'package:flutter_in_action/chapter08_eventhandling_notification/_8_3_eventbus.dart';
+import 'package:flutter_in_action/chapter08_eventhandling_notification/_8_4_notification.dart';
 
 import '_8_1_pointer_event.dart';
 
@@ -43,6 +44,16 @@ class Chapter08Widget extends StatelessWidget {
             colorBrightness: Brightness.dark,
             color: Colors.blue,
             child: Text('8.3 事件总线'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return NotificationRoute();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('8.4 Notification'),
           ),
         ],
       ),
