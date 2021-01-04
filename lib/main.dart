@@ -4,6 +4,7 @@ import 'package:flutter_in_action/chapter03_basic_widget/_3_.dart';
 import 'package:flutter_in_action/chapter05_container_widget/_5_.dart';
 import 'package:flutter_in_action/chapter06_scrollable_widget/_6_.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_.dart';
+import 'package:flutter_in_action/chapter09_animations/_9_.dart';
 
 import 'chapter04_layout_widget/_4_.dart';
 import 'chapter08_eventhandling_notification/_8_.dart';
@@ -115,6 +116,14 @@ class MyHomePage extends StatelessWidget {
               }));
             },
             child: Text("第八章：事件处理与通知"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+                return AnimationsRoute();
+              }));
+            },
+            child: Text('第九章：动画'),
           ),
         ],
       ),
