@@ -138,7 +138,7 @@ class _PointerEventRouteState extends State<PointerEventRoute> {
               onPointerDown: (PointerDownEvent event) => print("up"),
             ),
             Text("忽略 PointerEvent：使用 IgnorePointer 可以不让子树响应 PointerEvent，"
-                "但是 IgnorePointer 本身不会参与命中测试。"),
+                "而且 IgnorePointer 本身不会参与命中测试。"),
             // 不会输出 up，不会输出 in
             Listener(
               child: IgnorePointer(
