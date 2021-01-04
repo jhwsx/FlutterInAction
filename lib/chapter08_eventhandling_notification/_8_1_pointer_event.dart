@@ -159,7 +159,7 @@ class _PointerEventRouteState extends State<PointerEventRoute> {
     );
   }
 }
-// 手指按下后迅速抬起，打印了一个 down，多个 move，一个 up。Android 上不会由 move 事件的。
+// 手指按下后迅速抬起，打印了一个 down，多个 move，一个 up。Android 上不会有 move 事件的。
 // I/flutter (20456): event=PointerDownEvent#2e1e3(position: Offset(258.3, 229.0))
 // I/flutter (20456): event=PointerMoveEvent#7198d(position: Offset(258.3, 229.0))
 // I/flutter (20456): event=PointerMoveEvent#9e007(position: Offset(258.3, 229.0))
