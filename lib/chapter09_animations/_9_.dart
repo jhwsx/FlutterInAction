@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_in_action/chapter09_animations/_9_2_animation_structure.dart';
 import 'package:flutter_in_action/chapter09_animations/_9_3_custom_route_animation.dart';
 import 'package:flutter_in_action/chapter09_animations/_9_4_hero_animation.dart';
+import 'package:flutter_in_action/chapter09_animations/_9_5_staggered_animations.dart';
 
 class AnimationsRoute extends StatelessWidget {
   @override
@@ -36,6 +37,14 @@ class AnimationsRoute extends StatelessWidget {
               }));
             },
             child: Text("9.4 Hero动画"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return StaggeredAnimationsRoute();
+              }));
+            },
+            child: Text("9.5 交织动画"),
           ),
         ],
       ),
