@@ -4,6 +4,7 @@ import 'package:flutter_in_action/chapter09_animations/_9_3_custom_route_animati
 import 'package:flutter_in_action/chapter09_animations/_9_4_hero_animation.dart';
 import 'package:flutter_in_action/chapter09_animations/_9_5_staggered_animations.dart';
 import 'package:flutter_in_action/chapter09_animations/_9_6_animated_switcher.dart';
+import 'package:flutter_in_action/chapter09_animations/_9_7_animation_transition.dart';
 
 class AnimationsRoute extends StatelessWidget {
   @override
@@ -46,13 +47,21 @@ class AnimationsRoute extends StatelessWidget {
               }));
             },
             child: Text("9.5 交织动画"),
-          ),ElevatedButton(
+          ),
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return AnimatedSwitcherRoute();
               }));
             },
             child: Text("9.6 通用“动画切换”组件（AnimatedSwitcher）"),
+          ),ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return AnimationTransitionRoute();
+              }));
+            },
+            child: Text("9.7 动画过渡组件"),
           ),
         ],
       ),
