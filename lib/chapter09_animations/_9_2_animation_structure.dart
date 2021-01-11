@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_in_action/chapter05_container_widget/_5_5_container.dart';
 
 class AnimationStructureRoute extends StatelessWidget {
   @override
@@ -157,7 +156,7 @@ class _ScaleAnimationRouteState extends State<ScaleAnimationRoute>
 }
 
 /// 省去了 addListener 和 setState 的代码
-/// AnimatedWidget 类封装了调用 setState() 的细节
+/// AnimatedWidget 类封装了调用 setState() 的细节，包括了添加，移除监听的代码。
 class ScaleAnimationRoute2 extends StatefulWidget {
   @override
   _ScaleAnimationRoute2Route createState() => _ScaleAnimationRoute2Route();
@@ -173,6 +172,7 @@ class _ScaleAnimationRoute2Route extends State<ScaleAnimationRoute2>
     controller =
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
     animation = Tween(begin: 0.0, end: 300.0).animate(controller);
+    // 不用在这里添加监听，刷新状态了，AnimatedWidget 里已经封装了。
     controller.forward();
     super.initState();
   }
@@ -201,8 +201,9 @@ class AnimatedImage extends AnimatedWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO 这里为什么要再赋值一下呢？
-    final Animation<double> animation = listenable;
+    // 这里为什么要再赋值一下呢？ 是为了类型转换。listenable 是 Listenable 类型的，我们
+    // 需要转为其子类型 Animation<double>.
+    final Animation<double> animation = listenable as Animation<double>;
     return Center(
       child: Image.asset(
         "./images/wzc_avatar.webp",
@@ -215,6 +216,7 @@ class AnimatedImage extends AnimatedWidget {
 
 /// 抽象出来渲染过程，把 widget 和渲染过程分离开来。
 /// AnimatedBuilder 缩小了 setState 的范围。
+/// AnimatedBuilder 继承了 AnimatedWidget，是对 AnimatedWidget 的进一步封装。
 class ScaleAnimationRoute3 extends StatefulWidget {
   @override
   _ScaleAnimationRoute3State createState() {
