@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '_10_2_composite_existing_widget.dart';
+import '_10_3_composite_examples.dart';
 
 class CustomWidgetRoute extends StatelessWidget {
   @override
@@ -20,6 +21,15 @@ class CustomWidgetRoute extends StatelessWidget {
                   }));
             },
             child: Text('10.2 组合现有组件'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (BuildContext context) {
+                    return CompositeExamplesRoute();
+                  }));
+            },
+            child: Text('10.3 组合实例'),
           ),
         ],
       ),
