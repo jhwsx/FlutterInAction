@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_in_action/chapter10_custom_widget/_10_4_custom_paint_widget.dart';
 
 import '_10_2_composite_existing_widget.dart';
 import '_10_3_composite_examples.dart';
@@ -30,6 +31,15 @@ class CustomWidgetRoute extends StatelessWidget {
                   }));
             },
             child: Text('10.3 组合实例'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (BuildContext context) {
+                    return CustomPaintWidgetRoute();
+                  }));
+            },
+            child: Text('10.4 自绘组件 （CustomPaint与Canvas）'),
           ),
         ],
       ),
