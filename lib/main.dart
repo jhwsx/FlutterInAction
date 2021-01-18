@@ -6,6 +6,7 @@ import 'package:flutter_in_action/chapter06_scrollable_widget/_6_.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_.dart';
 import 'package:flutter_in_action/chapter09_animations/_9_.dart';
 import 'package:flutter_in_action/chapter10_custom_widget/_10_.dart';
+import 'package:flutter_in_action/chapter11_file_network/_11_.dart';
 
 import 'chapter04_layout_widget/_4_.dart';
 import 'chapter08_eventhandling_notification/_8_.dart';
@@ -133,6 +134,14 @@ class MyHomePage extends StatelessWidget {
               }));
             },
             child: Text('第十章：自定义组件'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+                return FileNetworkRoute();
+              }));
+            },
+            child: Text('第十一章：文件操作与网络请求'),
           ),
         ],
       ),
