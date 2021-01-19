@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_in_action/chapter11_file_network/_11_1_file_operations.dart';
 import 'package:flutter_in_action/chapter11_file_network/_11_2_httpclient.dart';
+import 'package:flutter_in_action/chapter11_file_network/_11_3_dio.dart';
 
 class FileNetworkRoute extends StatelessWidget {
   @override
@@ -29,6 +30,15 @@ class FileNetworkRoute extends StatelessWidget {
               }));
             },
             child: Text('11.2 通过HttpClient发起HTTP请求'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (BuildContext context) {
+                return DioRoute();
+              }));
+            },
+            child: Text('11.3 Http请求-Dio http库'),
           ),
         ],
       ),

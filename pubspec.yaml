@@ -33,7 +33,7 @@ dependencies:
   provider: ^4.3.2+3
   path_provider: ^1.6.27                   # https://pub.dev/packages/path_provider
   shared_preferences: ^0.5.12+4            # https://pub.dev/packages/shared_preferences
-
+  dio: ^3.0.10                             # https://pub.dev/packages/dio
 dev_dependencies:
   flutter_test:
     sdk: flutter
