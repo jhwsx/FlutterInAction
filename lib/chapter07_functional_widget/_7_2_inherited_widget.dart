@@ -73,7 +73,7 @@ class SharedDataWidget extends InheritedWidget {
     return context.dependOnInheritedWidgetOfExactType<SharedDataWidget>();
   }
 
-  /// 这个方法的作用时获取 SharedDataWidget 的数据，但在 SharedDataWidget 发生变化时
+  /// 这个方法的作用是获取 SharedDataWidget 的数据，但在 SharedDataWidget 发生变化时
   /// 不会调用子或孙 widget 的 didChangeDependencies() 方法。它不会注册依赖关系。
   static SharedDataWidget of2(BuildContext context) {
     return context
