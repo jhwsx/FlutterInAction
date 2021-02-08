@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+// Theme, MediaQuery 也是这种机制
+/// When using the `of` method, the `context` must be a descendant of the
+/// [InheritedWidget], meaning it must be "below" the [InheritedWidget] in the
+/// tree.
 class InheritedWidgetRoute extends StatefulWidget {
   @override
   _InheritedWidgetRouteState createState() => _InheritedWidgetRouteState();
@@ -66,7 +70,7 @@ class _InheritedWidgetRouteState extends State<InheritedWidgetRoute> {
 }
 
 class SharedDataWidget extends InheritedWidget {
-  SharedDataWidget({@required this.data, Widget child}) : super(child: child);
+  SharedDataWidget({Key key, @required this.data, Widget child}) : super(key: key, child: child);
   final int data; // 需要在子树中共享的数据，就是点击次数。
   /// 这个方法的作用是方便子树的 widget 获取共享数据，它会注册依赖关系。
   static SharedDataWidget of(BuildContext context) {
