@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+/// 通知机制来使父元素可以在一些特定时机来做一些事情。
 class NotificationRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,6 @@ class NotificationListenerRoute extends StatelessWidget {
       appBar: AppBar(
         title: Text('NotificationListener 之监听多个事件'),
       ),
-      // typedef IndexedWidgetBuilder = Widget Function(BuildContext context, int index);
       body: NotificationListener(
           // typedef NotificationListenerCallback<T extends Notification> = bool Function(T notification);
           onNotification: (notification) {
@@ -64,7 +63,8 @@ class NotificationListenerRoute extends StatelessWidget {
                 print('开始滚动');
                 break;
               case ScrollUpdateNotification:
-                print('正在滚动');
+                var scrollUpdateNotification = notification as ScrollUpdateNotification;
+                print('正在滚动：${scrollUpdateNotification.dragDetails}, ${scrollUpdateNotification.scrollDelta}');
                 break;
               case ScrollEndNotification:
                 print('停止滚动');
@@ -72,13 +72,17 @@ class NotificationListenerRoute extends StatelessWidget {
               case OverscrollNotification:
                 print('滚动到边界');
                 break;
+              case UserScrollNotification:
+                print('滚动方向改变了： ${(notification as UserScrollNotification).direction}');
+                break;
               default:
             }
-            // 允许继续通知冒泡
+            // 允许继续通知冒泡；反之，不允许继续通知冒泡。
             return false;
           },
           child: ListView.builder(
               itemCount: 100,
+              // typedef IndexedWidgetBuilder = Widget Function(BuildContext context, int index);
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
                   title: Text("$index"),
@@ -95,7 +99,6 @@ class NotificationListenerSpecificNotificationRoute extends StatelessWidget {
       appBar: AppBar(
         title: Text('NotificationListener 之指定通知类型'),
       ),
-      // typedef IndexedWidgetBuilder = Widget Function(BuildContext context, int index);
       body: NotificationListener<ScrollEndNotification>(
           // typedef NotificationListenerCallback<T extends Notification> = bool Function(T notification);
           onNotification: (notification) {
@@ -104,6 +107,7 @@ class NotificationListenerSpecificNotificationRoute extends StatelessWidget {
           },
           child: ListView.builder(
               itemCount: 100,
+              // typedef IndexedWidgetBuilder = Widget Function(BuildContext context, int index);
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
                   title: Text("$index"),
@@ -154,6 +158,13 @@ class _CustomNotificationRouteState extends State<CustomNotificationRoute> {
               Builder(builder: (BuildContext context) {
                 return ElevatedButton(
                   onPressed: () {
+                    // 分发通知
+                    /// Start bubbling this notification at the given build context.
+                    ///
+                    /// The notification will be delivered to any [NotificationListener] widgets
+                    /// with the appropriate type parameters that are ancestors of the given
+                    /// [BuildContext]. If the [BuildContext] is null, the notification is not
+                    /// dispatched.
                     MyNotification("Hello").dispatch(context);
                   },
                   child: Text('Post Notification'),
