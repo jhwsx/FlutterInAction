@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_in_action/chapter07_functional_widget/_1_same_page_different_widget_data_management.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_1_will_pop_scope.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_2_inherited_widget.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_3_provider.dart';
@@ -75,6 +76,16 @@ class Chapter07FunctionalWidget extends StatelessWidget {
             colorBrightness: Brightness.dark,
             color: Colors.blue,
             child: Text('7.6 对话框详解'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ValueNotifierWidget();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('同页面跨Widget数据管理'),
           ),
         ],
       ),
