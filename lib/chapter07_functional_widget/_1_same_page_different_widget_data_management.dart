@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
-// https://xuyisheng.top/flutter_state_management1/
-// 通过 ValueNotifier，我们将每个可能因为共享数据的变化而改变的 Widget，封装起来，从而在数据改变的时候，只更新监听了该数据的 Widget。
+/// 参考： https://xuyisheng.top/flutter_state_management1/
+/// 通过 ValueNotifier，我们将每个可能因为共享数据的变化而改变的 Widget，封装起来，从而在数据改变的时候，只更新监听了该数据的 Widget。
 class ValueNotifierWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _ValueNotifierWidgetState();
@@ -35,7 +35,7 @@ class _ValueNotifierWidgetState extends State<ValueNotifierWidget> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '同页面跨Widget数据管理',
+          'ValueNotifier',
         ),
       ),
       body: Center(

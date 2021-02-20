@@ -6,6 +6,9 @@ import 'package:flutter_in_action/chapter07_functional_widget/_7_3_provider.dart
 import 'package:flutter_in_action/chapter07_functional_widget/_7_4_color_theme.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_5_future_builder_stream_builder.dart';
 import 'package:flutter_in_action/chapter07_functional_widget/_7_6_dialog.dart';
+import 'package:flutter_in_action/chapter08_eventhandling_notification/_8_4_notification.dart';
+
+import '_3_bloc.dart';
 
 class Chapter07FunctionalWidget extends StatelessWidget {
   @override
@@ -85,7 +88,27 @@ class Chapter07FunctionalWidget extends StatelessWidget {
             },
             colorBrightness: Brightness.dark,
             color: Colors.blue,
-            child: Text('同页面跨Widget数据管理'),
+            child: Text('同页面跨Widget数据管理之ValueNotifier'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return NotificationRoute();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('同页面跨Widget数据管理之Notification'),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return BLoCWidget();
+              }));
+            },
+            colorBrightness: Brightness.dark,
+            color: Colors.blue,
+            child: Text('跨页面跨Widget数据管理之BLoC'),
           ),
         ],
       ),

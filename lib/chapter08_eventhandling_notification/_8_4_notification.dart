@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 /// 通知机制来使父元素可以在一些特定时机来做一些事情。
+/// 参考：https://xuyisheng.top/flutter_state_management2/
 class NotificationRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
