@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+/// https://xuyisheng.top/flutter_state_management3/
 class BLoCWidget extends StatefulWidget {
   @override
   _BLoCWidgetState createState() => _BLoCWidgetState();
