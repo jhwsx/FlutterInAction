@@ -3,6 +3,7 @@ import 'package:flutter_in_action/chapter11_file_network/_11_1_file_operations.d
 import 'package:flutter_in_action/chapter11_file_network/_11_2_httpclient.dart';
 import 'package:flutter_in_action/chapter11_file_network/_11_3_dio.dart';
 import 'package:flutter_in_action/chapter11_file_network/_11_4_http_chunk_download.dart';
+import 'package:flutter_in_action/chapter11_file_network/json_parse.dart';
 
 class FileNetworkRoute extends StatelessWidget {
   @override
@@ -49,6 +50,15 @@ class FileNetworkRoute extends StatelessWidget {
               }));
             },
             child: Text('11.4 实例：Http分块下载'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (BuildContext context) {
+                return JsonParseWidget();
+              }));
+            },
+            child: Text('Json 渐进式解析'),
           ),
         ],
       ),

@@ -172,6 +172,8 @@ class ColorBoxPage extends StatelessWidget {
           10.0,
         ),
         child: Material(
+          elevation: 4.0,
+          borderRadius: BorderRadius.all(Radius.circular(4.0)),
           color: index % 2 == 0 ? Colors.cyan : Colors.deepOrange,
           child: Center(
             child: Text(index.toString()),

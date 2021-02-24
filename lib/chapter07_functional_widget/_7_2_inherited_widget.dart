@@ -104,8 +104,8 @@ class _TestWidgetState extends State<TestWidget> {
   Widget build(BuildContext context) {
     print('_TestWidgetState build() called');
     // 如果不使用 InheritedWidget 中的共享数据，那么当点击按钮时，didChangeDependencies 不会回调。
-    return Text("text");
-    // return Text(SharedDataWidget.of(context).data.toString());
+    // return Text("text");
+    return Text(SharedDataWidget.of(context).data.toString());
     // return Text(SharedDataWidget.of2(context).data.toString());
   }
 
