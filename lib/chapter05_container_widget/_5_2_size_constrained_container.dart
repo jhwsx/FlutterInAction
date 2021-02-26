@@ -50,12 +50,13 @@ class SizeConstrainedContainerRoute extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 8),
-            child: Text('多重限制: 对于 minWidth 和 minHeight 来说，是取父子中相应数值的较大者。'),
+            child: Text(
+                '多重 ConstrainedBox 限制: 对于 minWidth 和 minHeight 来说，是取父子中相应数值的较大者。'),
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(minWidth: 100.0, minHeight: 20.0),
+            constraints: BoxConstraints(minWidth: 100.0, minHeight: 20.0), // 父
             child: ConstrainedBox(
-              constraints: BoxConstraints(minWidth: 50.0, minHeight: 50.0),
+              constraints: BoxConstraints(minWidth: 50.0, minHeight: 50.0), // 子
               child: redBox,
             ),
           ),
@@ -63,20 +64,22 @@ class SizeConstrainedContainerRoute extends StatelessWidget {
             height: 8,
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(minWidth: 100.0, minHeight: 20.0),
+            constraints: BoxConstraints(minWidth: 50.0, minHeight: 60.0), // 父
             child: ConstrainedBox(
-              constraints: BoxConstraints(minWidth: 50.0, minHeight: 50.0),
+              constraints: BoxConstraints(minWidth: 120.0, minHeight: 20.0),
+              // 子
               child: redBox,
             ),
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 8),
-            child: Text('多重限制: 对于 maxWidth 和 maxHeight 来说，无效, 最终宽高都是0。'),
+            child: Text(
+                '多重 ConstrainedBox 限制: 对于 maxWidth 和 maxHeight 来说，无效, 最终宽高都是0。'),
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 100.0, maxHeight: 70.0),
+            constraints: BoxConstraints(maxWidth: 100.0, maxHeight: 70.0), // 父
             child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 50.0, maxHeight: 50.0),
+              constraints: BoxConstraints(maxWidth: 50.0, maxHeight: 50.0), // 子
               child: redBox,
             ),
           ),
@@ -84,9 +87,11 @@ class SizeConstrainedContainerRoute extends StatelessWidget {
             height: 8,
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 100.0, maxHeight: 70.0),
+            // 父
+            constraints: BoxConstraints(maxWidth: 50.0, maxHeight: 50.0),
             child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 50.0, maxHeight: 50.0),
+              constraints: BoxConstraints(maxWidth: 100.0, maxHeight: 70.0),
+              // 子
               child: redBox,
             ),
           ),
@@ -96,10 +101,26 @@ class SizeConstrainedContainerRoute extends StatelessWidget {
             child: Text('UnconstrainedBox 去除多重限制'),
           ),
           ConstrainedBox(
+            // 父
             constraints: BoxConstraints(minWidth: 60, minHeight: 50),
+            child: ConstrainedBox(
+              // 子
+              constraints: BoxConstraints(minWidth: 90.0, minHeight: 20.0),
+              child: redBox,
+            ),
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          ConstrainedBox(
+            // 父
+            constraints: BoxConstraints(minWidth: 60, minHeight: 50),
+            // 去除父级限制
             child: UnconstrainedBox(
               child: ConstrainedBox(
+                // 子
                 constraints: BoxConstraints(minWidth: 90.0, minHeight: 20.0),
+
                 child: redBox,
               ),
             ),
