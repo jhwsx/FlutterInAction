@@ -210,9 +210,8 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headline4,
             ),
             // 添加一个按钮
-            FlatButton(
+            TextButton(
               child: Text('演示打开新路由'),
-              textColor: Colors.blue,
               onPressed: () {
                 // 当点击按钮时，导航到新路由
                 // MaterialPageRoute 继承自 PageRoute 类，
@@ -242,7 +241,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 }));
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () async {
                 // 因为 Navigator.push 是异步函数，返回一个 Future 对象，
                 // 要获取 Future 的结果，就要在异步函数之前加 await。
@@ -258,7 +257,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text('演示打开新路由并传值以及从新路由获取返回数据'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () async {
                 // 因为 Navigator.push 是异步函数，返回一个 Future 对象，
                 // 要获取 Future 的结果，就要在异步函数之前加 await。
@@ -273,21 +272,21 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('演示通过路由名打开新路由并传值以及从新路由获取返回数据'),
             ),
             RandomWordsWidget(),
-            RaisedButton(
+            ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return AssetWidget();
                   }));
                 },
                 child: Text('资源管理')),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
 //              throw HttpException('http exception');
                 throw Error();
               },
               child: Text('抛出一个异常'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return ContextRoute();
@@ -346,7 +345,7 @@ class TipRoute extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(text),
-              RaisedButton(
+              ElevatedButton(
                 // 点击按钮，把当前的 Route 出栈
                 // bool pop(BuildContext context, [ result ])
                 // 将栈顶路由出栈，result为页面关闭时返回给上一个页面的数据。

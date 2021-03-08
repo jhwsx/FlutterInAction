@@ -51,7 +51,7 @@ class TotalPricePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text("总价：${_cart.totalPrice}"),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return ChangeNotifierProvider.value(
@@ -83,7 +83,7 @@ class _AddItemRouteState extends State<AddItemRoute> {
       ),
       body: Container(
         child: Center(
-          child: RaisedButton(
+          child: ElevatedButton(
             onPressed: () {
               _cart.add(Item(30.0, 1));
             },

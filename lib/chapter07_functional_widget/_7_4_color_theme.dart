@@ -11,7 +11,7 @@ class ColorThemeRoute extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return ConvertColorStringRoute();
@@ -19,7 +19,7 @@ class ColorThemeRoute extends StatelessWidget {
             },
             child: Text("将颜色字符串转成Color对象"),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return ColorLuminanceRoute();
@@ -27,7 +27,7 @@ class ColorThemeRoute extends StatelessWidget {
             },
             child: Text("颜色亮度"),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return ThemeTestRoute();

@@ -56,7 +56,7 @@ class _CountWidgetState extends State<CountWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FlatButton(
+            TextButton(
               onPressed: () {
                 setState(() {
                   ++_counter;

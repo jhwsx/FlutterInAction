@@ -30,7 +30,9 @@ class _WillPopScopeTestRouteState extends State<WillPopScopeTestRoute> {
                 DateTime.now().difference(_lastPressedAt) >
                     Duration(seconds: 1)) {
               _lastPressedAt = DateTime.now();
-              Scaffold.of(context)
+              // Scaffold.of(context)
+              //     .showSnackBar(SnackBar(content: Text("再按一次退出应用")));
+              ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text("再按一次退出应用")));
               return false;
             }

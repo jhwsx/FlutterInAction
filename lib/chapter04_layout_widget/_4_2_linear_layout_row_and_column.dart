@@ -11,7 +11,7 @@ class RowAndColumnRoute extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return RowRoute();
@@ -19,7 +19,7 @@ class RowAndColumnRoute extends StatelessWidget {
               },
               child: Text('Row'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return ColumnRoute();
@@ -27,7 +27,7 @@ class RowAndColumnRoute extends StatelessWidget {
               },
               child: Text('Column'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return ColumnCenterRoute1();
@@ -35,7 +35,7 @@ class RowAndColumnRoute extends StatelessWidget {
               },
               child: Text('Column 居中1'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return ColumnCenterRoute2();
@@ -43,7 +43,7 @@ class RowAndColumnRoute extends StatelessWidget {
               },
               child: Text('Column 居中2'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return ColumnCenterRoute3();
@@ -51,7 +51,7 @@ class RowAndColumnRoute extends StatelessWidget {
               },
               child: Text('Column 居中3'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return SpecialCaseRoute();
@@ -59,7 +59,7 @@ class RowAndColumnRoute extends StatelessWidget {
               },
               child: Text('列嵌套列，或行嵌套行'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return SpecialCaseFixRoute();

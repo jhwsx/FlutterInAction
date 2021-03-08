@@ -11,64 +11,52 @@ class ListViewRoute extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return ListViewDefaultConstructorRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text("默认构造函数"),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return ListViewBuilderRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text("ListView.builder"),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return ListViewSeparatedRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text("ListView.separated"),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return HorizontalListViewRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text("横向的ListView"),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return LoadMoreListViewRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text("实例：加载更多列表"),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return FixedHeaderListViewRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text("实例：固定列表头的ListView"),
           ),
         ],

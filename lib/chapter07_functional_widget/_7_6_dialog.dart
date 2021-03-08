@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DialogRoute extends StatefulWidget {
+class DialogDemoRoute extends StatefulWidget {
   @override
-  _DialogRouteState createState() => _DialogRouteState();
+  _DialogDemoRouteState createState() => _DialogDemoRouteState();
 }
 
 class MyFab extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyFab extends StatelessWidget {
   }
 }
 
-class _DialogRouteState extends State<DialogRoute> {
+class _DialogDemoRouteState extends State<DialogDemoRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -634,7 +634,7 @@ Future<T> showCustomDialog<T>({
   assert(useRootNavigator != null);
   assert(debugCheckHasMaterialLocalizations(context));
 
-  final ThemeData theme = Theme.of(context, shadowThemeOnly: true);
+  final ThemeData theme = Theme.of(context);
   // 对话框最终都是由 showGeneralDialog 方法打开的。
   // 它的实现也是通过路由实现的。
   return showGeneralDialog(

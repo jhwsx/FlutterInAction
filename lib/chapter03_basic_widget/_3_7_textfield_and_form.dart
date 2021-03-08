@@ -18,7 +18,7 @@ class _TextFieldAndFormRouteState extends State<TextFieldAndFormRoute> {
       ),
       body: Column(
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return TextFieldRoute();
@@ -26,7 +26,7 @@ class _TextFieldAndFormRouteState extends State<TextFieldAndFormRoute> {
             },
             child: Text('输入框'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return FormRoute();

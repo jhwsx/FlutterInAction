@@ -15,44 +15,36 @@ class Chapter08Widget extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return PointerEventRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('8.1 原始指针事件处理'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return GestureRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('8.2 手势识别'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return EventBusRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('8.3 事件总线'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return NotificationRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('8.4 Notification'),
           ),
         ],

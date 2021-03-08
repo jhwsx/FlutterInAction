@@ -102,7 +102,7 @@ class EventBus {
   void register(eventName, EventCallback callback) {
     if (eventName == null || callback == null) return;
     // ??= 这个叫做 Null-aware 赋值操作符
-    _emap[eventName] ??= List<EventCallback>();
+    _emap[eventName] ??= [];
     _emap[eventName].add(callback);
   }
 

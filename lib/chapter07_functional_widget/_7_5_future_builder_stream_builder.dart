@@ -12,7 +12,7 @@ class FutureBuilderAndStreamBuilderRoute extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return FutureBuilderRoute();
@@ -20,7 +20,7 @@ class FutureBuilderAndStreamBuilderRoute extends StatelessWidget {
             },
             child: Text('FutureBuilder'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return StreamBuilderRoute();

@@ -20,94 +20,76 @@ class Chapter07FunctionalWidget extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return WillPopScopeTestRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('7.1 导航返回拦截（WillPopScope）'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return InheritedWidgetRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('7.2 数据共享（InheritedWidget）'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return ProviderRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('7.3 跨组件状态共享（Provider）'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return ColorThemeRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('7.4 颜色和主题'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return FutureBuilderAndStreamBuilderRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('7.5 异步UI更新（FutureBuilder、StreamBuilder）'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return DialogRoute();
+                return DialogDemoRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('7.6 对话框详解'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return ValueNotifierWidget();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('同页面跨Widget数据管理之ValueNotifier'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return NotificationRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('同页面跨Widget数据管理之Notification'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return BLoCWidget();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('跨页面跨Widget数据管理之BLoC'),
           ),
         ],

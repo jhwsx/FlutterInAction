@@ -15,54 +15,44 @@ class Chapter06ScrollableWidget extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return SingleChildScrollViewRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('6.2 SingleChildScrollView'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return ListViewRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('6.3 ListView'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return GridViewRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('6.4 GridView'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return CustomScrollViewRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('6.5 CustomScrollView'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return ScrollRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('6.6 滚动监听及控制'),
           ),
         ],

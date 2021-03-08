@@ -28,74 +28,60 @@ class _Chapter05ContainerWidgetState extends State<Chapter05ContainerWidget> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return PaddingRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('5.1 填充（Padding）'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return SizeConstrainedContainerRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('5.2 尺寸限制类容器'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return DecoratedBoxRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('5.3 装饰容器DecoratedBox'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return TransformRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('5.4 变换（Transform）'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return ContainerRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('5.5 Container（容器）'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return ScaffoldTabBarBottomNaviRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('5.6 Scaffold、TabBar、底部导航'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return ClipRoute();
               }));
             },
-            colorBrightness: Brightness.dark,
-            color: Colors.blue,
             child: Text('5.7 剪裁（Clip）'),
           ),
         ],

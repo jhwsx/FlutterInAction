@@ -22,7 +22,7 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return StateLifecycleRoute();
@@ -31,9 +31,8 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
               child: Text(
                 '3.1 Widget 简介之 State 生命周期',
               ),
-              textColor: Colors.blue,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return FetchStateRoute();
@@ -42,9 +41,8 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
               child: Text(
                 '3.1 Widget 简介之子树中获取 State 对象',
               ),
-              textColor: Colors.blue,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return CupertinoTestRoute();
@@ -53,9 +51,8 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
               child: Text(
                 '3.1 Widget 简介之Cupertino组件风格演示',
               ),
-              textColor: Colors.blue,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
@@ -63,9 +60,8 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
                 }));
               },
               child: Text('3.2 状态管理'),
-              textColor: Colors.blue,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
@@ -73,9 +69,8 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
                 }));
               },
               child: Text('3.3 文本字体样式'),
-              textColor: Colors.blue,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
@@ -83,9 +78,8 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
                 }));
               },
               child: Text('3.4 按钮'),
-              textColor: Colors.blue,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
@@ -93,9 +87,8 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
                 }));
               },
               child: Text('3.5 图片及Icon'),
-              textColor: Colors.blue,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
@@ -103,9 +96,8 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
                 }));
               },
               child: Text('3.6 单选开关和复选框'),
-              textColor: Colors.blue,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
@@ -113,9 +105,8 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
                 }));
               },
               child: Text('3.7 输入框和表单'),
-              textColor: Colors.blue,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
@@ -123,7 +114,6 @@ class Chapter3BasicWidgetRoute extends StatelessWidget {
                 }));
               },
               child: Text('3.8 进度指示器'),
-              textColor: Colors.blue,
             ),
           ],
         ),

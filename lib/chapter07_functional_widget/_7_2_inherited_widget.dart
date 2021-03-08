@@ -52,7 +52,7 @@ class _InheritedWidgetRouteState extends State<InheritedWidgetRoute> {
                   //   SharedDataWidget.of(context).data.toString(),
                   //   style: TextStyle(color: Colors.red),
                   // ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text('Increment'),
                     onPressed: _incrementCount,
                   ),

@@ -150,7 +150,7 @@ class TotalPricePage extends StatelessWidget {
           // Builder(builder: (context) {
           //   return Text("总价：${cart.totalPrice}");
           // }),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) {
@@ -197,7 +197,7 @@ class _AddItemRouteState extends State<AddItemRoute> {
       body: Container(
         child: Center(
           child: Builder(builder: (context) {
-            return RaisedButton(
+            return ElevatedButton(
               onPressed: () {
                 ChangeNotifierProvider.of<CartModel>(context)
                     .add(Item(20.0, 1));

@@ -24,7 +24,7 @@ class StackAndPostionedRoute extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return StackDemo1Route();
@@ -32,7 +32,7 @@ class StackAndPostionedRoute extends StatelessWidget {
             },
             child: Text('Stack Demo1-演示 Positioned 使用'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return StackDemo2Route();
@@ -40,7 +40,7 @@ class StackAndPostionedRoute extends StatelessWidget {
             },
             child: Text('Stack Demo2-演示 fit 属性的使用'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return StackDemo3Route();
@@ -48,7 +48,7 @@ class StackAndPostionedRoute extends StatelessWidget {
             },
             child: Text('Stack Demo3-演示默认是左上角对齐的'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return StackDemo4Route();
@@ -56,7 +56,7 @@ class StackAndPostionedRoute extends StatelessWidget {
             },
             child: Text('Stack Demo4-实际的例子'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return StackDemo5Route();
@@ -64,7 +64,7 @@ class StackAndPostionedRoute extends StatelessWidget {
             },
             child: Text('Stack Demo5-演示 overflow'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return StackDemo6Route();
@@ -267,8 +267,11 @@ class StackDemo5Route extends StatelessWidget {
           // 如何显示超出 Stack 显示空间的子组件？
           // 超出部分不会被裁剪；
           // overflow: Overflow.visible,
+          // clipBehavior: Clip.none,
+
           // 超出部分会被裁剪。
-         overflow: Overflow.clip,
+         // overflow: Overflow.clip,
+          clipBehavior: Clip.hardEdge,
           children: [
             Container(
               width: 250,
